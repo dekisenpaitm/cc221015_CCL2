@@ -36,7 +36,7 @@ export default {
             })
                 .then(response => {
                     console.log(response.data);
-                    window.location.href = '/';
+                    window.location.href = '/'
                 })
                 .catch(error => {
                     console.error(error);

@@ -56,6 +56,7 @@ function viewUser(req, res, next) {
 function register(req,res,next){
     userModel.addUser(req.body)
     .then(user => {
+        res.send(user);
         res.status(200)
     res.send(user)})
         .catch(error => res.sendStatus(500))
