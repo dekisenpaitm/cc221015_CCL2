@@ -13,7 +13,7 @@
 import axios from "axios";
 
 export default {
-    name: "ProductDetailPage",
+    name: "UserView",
     data() {
         return {
             user: {}
@@ -23,6 +23,7 @@ export default {
         axios.get(`http://localhost:3000/users/${this.$route.params.id}`)
             .then((response) => {
                 this.user = response.data;
+                console.log(this.user)
             })
             .catch((error) => {
                 console.error(error);

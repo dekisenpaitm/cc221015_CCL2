@@ -15,18 +15,26 @@ const port = 3000;
 const indexRouter = require('../routes/index');
 const usersRouter = require('../routes/users');
 const registerRouter = require('../routes/register');
+const loginRouter = require('../routes/login');
+const logoutRouter = require('../routes/logout');
+const {authenticateJWT} = require("../services/authentication");
 
 //// App - Configuration
-app.use(bodyParser.json());
-app.use('/images', express.static(path.join(__dirname, '../assets')));
 app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/images', express.static(path.join(__dirname, '../assets')));
 app.use(morgan("common"))
-app.use(cookieParser());
 
 //// App - Routes
-app.use('/', usersRouter);
+app.use(cookieParser());
+app.use(authenticateJWT);
+
+app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/register', registerRouter);
+app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
 
 app.use(errorHandler);
 app.all('*', notFound);

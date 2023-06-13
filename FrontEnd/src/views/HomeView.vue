@@ -1,6 +1,5 @@
 <template>
 <div>
-    <UserGrid :users="users" />
 </div>
 </template>
 
@@ -10,22 +9,7 @@ import UserGrid from "@/components/UserGrid.vue";
 
 export default {
     name: "HomeView",
-    components: { UserGrid },
-    data() {
-        return {
-            users: []
-        };
-    },
-    created() {
-        axios.get(`http://localhost:3000/`)
-            .then((response) => {
-                this.users = response.data;
-                console.log(response.data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    },
-};
+    components: {UserGrid}
+}
 </script>
 

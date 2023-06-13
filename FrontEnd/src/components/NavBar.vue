@@ -7,6 +7,7 @@
         </div>
         <div class="flex-1">
             <a class="btn btn-ghost normal-case text-xl">Portfolio</a>
+            <a class="btn btn-ghost normal-case text-xl">Portfolio</a>
         </div>
         <div class="flex-none">
             <button class="btn btn-square btn-ghost">
@@ -17,6 +18,31 @@
 </template>
 
 <script>
+import axios from "axios";
+
+export default {
+    data() {
+        return {
+            users: {},
+        };
+    },
+    mounted() {
+        this.getData()
+    },
+    methods: {
+        getData() {
+            axios.get(`http://localhost:3000/`)
+                .then((response) => {
+                    this.users = response.data;
+                    console.log(response.data)
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        },
+    }
+}
+
 </script>
 
 <style scoped>
