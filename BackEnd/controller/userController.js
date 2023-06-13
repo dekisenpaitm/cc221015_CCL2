@@ -54,11 +54,11 @@ function viewUser(req, res, next) {
  * @param next Possible-Middleware
  */
 function register(req,res,next){
+    console.log("this is the body: " + req.body);
     userModel.addUser(req.body)
     .then(user => {
         res.send(user);
-        res.status(200)
-    res.send(user)})
+    })
         .catch(error => res.sendStatus(500))
 }
 

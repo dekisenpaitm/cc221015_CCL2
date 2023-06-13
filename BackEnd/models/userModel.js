@@ -46,7 +46,7 @@ let getUser = (id) => new Promise((resolve, reject) => {
  * @returns An object, which represents the newly created user
  */
 let addUser = (userData) => new Promise (async (resolve, reject)=> {
-    console.log(userData);
+    console.log("this is the user data: " + userData);
     userData.originalPassword = userData.password;
     console.log(userData.password);
     userData.password = await bcrypt.hash(userData.password, 10);

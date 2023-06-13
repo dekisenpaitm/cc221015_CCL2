@@ -7,7 +7,7 @@ const userController = require("../controller/userController");
 //// Routes
 const router = express.Router();
 
-router.route('/')
+router.route('/add')
     .post(userController.register);
 
 //// Exports
