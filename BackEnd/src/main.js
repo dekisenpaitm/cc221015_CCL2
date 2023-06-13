@@ -20,9 +20,9 @@ const logoutRouter = require('../routes/logout');
 const {authenticateJWT} = require("../services/authentication");
 
 //// App - Configuration
-app.use(cors());
+app.use(cors({origin: true, credentials: true}));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/images', express.static(path.join(__dirname, '../assets')));
 app.use(morgan("common"))
 
@@ -50,7 +50,6 @@ app.all('*', notFound);
  * @param next Possible-Middleware
  */
 function errorHandler(err, req, res, next){
-    console.log("error");
 }
 
 /**

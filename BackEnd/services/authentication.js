@@ -11,24 +11,26 @@ const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
  * @param users A list of all users
  * @param res The HTTP-Response
  */
-async function authenticateUser({uname, pw}, users, res){
+async function authenticateUser({uname, pw} , users, res){
     console.log(uname, pw)
     const user = users.find(u => {
         return u.name === uname
     });
     //returns pending promise --> doesn't render true
     if (user && await checkPassword(pw, user.password)) {
+        console.log(user);
+        console.log("checking the password: " + user, pw, user.password)
+        console.log("I checked the PW")
     // Generate an access token
-        console.log(ACCESS_TOKEN_SECRET);
         const payload =
             {
                 id: user.userID,
                 name: user.name,
                 role: user.role
             };
-        console.log(payload);
         const accessToken = jwt.sign(payload, ACCESS_TOKEN_SECRET, { expiresIn: '1000d' });
         res.cookie('accessToken', accessToken);
+        console.log("this is the accessToken: " + accessToken)
     } else {
         console.log("authenticate went wrong")
     }
@@ -76,9 +78,12 @@ function updateJWT(res, user){
             name: user.name,
             role: user.role
         };
-    console.log(payload);
     const accessToken = jwt.sign(payload, ACCESS_TOKEN_SECRET, { expiresIn: '1000d' });
-    res.cookie('accessToken', accessToken);
+    res.cookie('accessToken', accessToken, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none'
+    });
 }
 
 
@@ -90,8 +95,6 @@ function updateJWT(res, user){
  */
 async function checkPassword(password, hash){
     let pw = await bcrypt.compare(password, hash)
-    console.log(password);
-    console.log(pw);
     return pw;
 }
 

@@ -35,7 +35,6 @@ export default {
                 password: this.password,
             })
                 .then(response => {
-                    console.log(response.data);
                     window.location.href = '/'
                 })
                 .catch(error => {

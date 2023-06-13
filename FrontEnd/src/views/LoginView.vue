@@ -23,11 +23,19 @@ export default {
     },
     methods: {
         loginUser() {
-            axios.post('http://localhost:3000/login', {
+            let data = {
                 uname: this.username,
                 pw: this.password
+            };
+
+            axios.post('http://localhost:3000/login', data, {
+                withCredentials: true,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             })
                 .then(response => {
+                    // Handle the response as needed
                     console.log(response.data);
                     window.location.href = '/';
                 })

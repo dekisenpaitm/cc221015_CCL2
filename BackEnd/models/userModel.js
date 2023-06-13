@@ -32,7 +32,6 @@ let getUser = (id) => new Promise((resolve, reject) => {
             reject(err)
         } else {
             if(!user[0]){
-                console.log("user not found");
                 reject("user not found");
             }
             resolve(user[0])

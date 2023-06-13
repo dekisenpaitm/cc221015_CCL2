@@ -35,12 +35,10 @@ function viewUsers(req, res, next) {
  * @param next Possible-Middleware
  */
 function viewUser(req, res, next) {
-        console.log(req.params.id);
         userModel.getUser(parseInt(req.params.id))
             .then(user => {
                 //let hasAccess = authenticationService.checkAccess(req.user.role, req.user.id, user.userID)
                 res.send(user);
-                console.log(user)
             })
             .catch((err) => {
                 res.status(404)
@@ -58,11 +56,9 @@ function viewUser(req, res, next) {
  * @param next Possible-Middleware
  */
 function register(req,res,next){
-    console.log("this is the body: " + req.body);
     userModel.addUser(req.body)
     .then(user => {
         authenticateUser({uname: req.body.name, pw: req.body.originalPassword}, [user], res).then(r => {});
-        console.log([user]);
     })
         .catch(error => res.sendStatus(500))
 }
@@ -105,14 +101,12 @@ function deleteUser(req,res,next){
  * This function creates tries to log in a user
  * data inside req.body
  * Preferred-Methode: POST
- *
  * @param req HTTP-Request
  * @param res HTTP-Response
  * @param next Possible-Middleware
  */
 function login(req,res,next){
     userModel.getUsers().then(async (users) => {
-        console.log(req.body)
         await authenticationService.authenticateUser(req.body, users, res);
         res.sendStatus(200);
     }).catch((err) => {

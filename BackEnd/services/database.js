@@ -13,7 +13,6 @@ const config = mysql.createConnection({
 
 config.connect(function(err) {
     if (err) throw err;
-    console.log("Connected!");
 });
 
 module.exports = {config};

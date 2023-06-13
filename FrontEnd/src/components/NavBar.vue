@@ -7,7 +7,7 @@
         </div>
         <div class="flex-1">
             <a class="btn btn-ghost normal-case text-xl">Portfolio</a>
-            <a class="btn btn-ghost normal-case text-xl">Portfolio</a>
+            <a v-if="users" class="btn btn-ghost normal-case text-xl">Portfolio</a>
         </div>
         <div class="flex-none">
             <button class="btn btn-square btn-ghost">
@@ -34,7 +34,6 @@ export default {
             axios.get(`http://localhost:3000/`)
                 .then((response) => {
                     this.users = response.data;
-                    console.log(response.data)
                 })
                 .catch((error) => {
                     console.error(error);
@@ -42,9 +41,7 @@ export default {
         },
     }
 }
-
 </script>
 
 <style scoped>
-
 </style>
