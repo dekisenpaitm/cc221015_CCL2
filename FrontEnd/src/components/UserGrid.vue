@@ -1,17 +1,15 @@
 <template>
-  <div>
-      <UserGridItem
+      <UserGridItem :cookie="cookie"
               v-for="user in users"
               :key="user.userID"
               :users="user"/>
-  </div>
 </template>
 
 <script>
 import UserGridItem from "@/components/UserGridItem.vue";
 export default {
   name: "UserGrid",
-  props: ['users'],
+  props: ['users', 'cookie'],
   components: { UserGridItem },
 };
 </script>

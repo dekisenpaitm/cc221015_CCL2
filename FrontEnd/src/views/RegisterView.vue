@@ -1,30 +1,62 @@
 <template>
-    <form class="text-outline transparent" @submit.prevent="createUser">
-        <label for="name">Username:</label>
-        <input id="name" v-model="name" type="text" placeholder="Enter Username" name="name" required>
-        <label for="email">Email:</label>
-        <input id="email" v-model="email" type="text" placeholder="Enter Email" name="email" required>
-        <label for="password">Password:</label>
-        <input id="password" v-model="password" type="password" placeholder="Enter Password" name="password" required>
-        <label for="pw-conf">Password confirmation:</label>
-        <input id="pw-conf" v-model="passwordConfirmation" type="password" placeholder="Re-Enter Password" name="psw-conf" required>
-        <div id="terms">
-            <input type="checkbox" name="agree" required> I have agreed to the <a href="#">terms and conditions!</a>
+    <div v-if="!cookie" class="hero min-h-screen bg-base-200">
+        <div class="hero-content flex-col lg:flex-row-reverse">
+            <div class="text-center lg:text-left">
+                <h1 class="text-5xl font-bold">Register now!</h1>
+                <p class="py-6">Register now to get access to liking and commenting on stuff.</p>
+            </div>
+            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div class="card-body">
+                    <form class="text-outline transparent" @submit.prevent="createUser">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Username</span>
+                        </label>
+                        <input id="name" v-model="name" type="text" placeholder="Enter Username" name="name" required class="input input-bordered" />
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">E-mail</span>
+                        </label>
+                        <input input id="email" v-model="email" type="text" placeholder="Enter Email" name="email" required class="input input-bordered" />
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Password</span>
+                        </label>
+                        <input id="password" v-model="password" type="password" placeholder="Enter Password" name="password" required class="input input-bordered" />
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Confirm Password</span>
+                        </label>
+                        <input id="pw-conf" v-model="passwordConfirmation" type="password" placeholder="Re-Enter Password" name="psw-conf" required class="input input-bordered" />
+                        <label class="label">
+                            <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+                        </label>
+                    </div>
+                    <div class="form-control mt-6">
+                        <button class="btn btn-accent">Login</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <button class="button" type="submit">Register</button>
-    </form>
+    </div>
+    <div v-else><p>Seems like you're already logged in!</p></div>
 </template>
 
 <script>
 import axios from "axios";
 
 export default {
+    props: ['cookie'],
     data() {
         return {
             name: '',
             email: '',
             password: '',
-            passwordConfirmation: ''
+            passwordConfirmation: '',
         };
     },
     methods: {

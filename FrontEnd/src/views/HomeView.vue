@@ -8,7 +8,6 @@
         <div class="divider"></div>
 
         <div class="grid hero-content card bg-base-300 rounded-box place-items-center">
-            <titel>
                 <h1>Lorem Ipsum</h1>
                 <br>
                 <p>
@@ -24,13 +23,11 @@
                     gubergren, no sea
                     takimata sanctus est Lorem ipsum dolor sit amet.
                 </p>
-            </titel>
         </div>
 
         <div class="divider"></div>
 
         <div class="grid hero-content card bg-base-300 rounded-box place-items-center">
-            <titel>
                 <h1>Lorem Ipsum</h1>
                 <br>
                 <p>
@@ -46,7 +43,6 @@
                     gubergren, no sea
                     takimata sanctus est Lorem ipsum dolor sit amet.
                 </p>
-            </titel>
         </div>
     </div>
 </template>

@@ -6,6 +6,9 @@ import UserView from "@/views/UserView.vue";
 import LoginView from "@/views/LoginView.vue";
 import UsersView from "@/views/UsersView.vue";
 import EditView from "@/views/EditView.vue";
+import GameView from "@/views/GameView.vue";
+import PixelView from "@/views/PixelView.vue";
+import UIUXView from "@/views/UIUXView.vue";
 
 
 const router = createRouter({
@@ -45,6 +48,21 @@ const router = createRouter({
       path: '/users/edit/:id',
       name: 'edit',
       component: EditView
+    },
+    {
+      path: '/games',
+      name: 'games',
+      component: GameView
+    },
+    {
+      path: '/pixel',
+      name: 'pixel',
+      component: PixelView
+    },
+    {
+      path: '/uiux',
+      name: 'uiux',
+      component: UIUXView
     },
   ]
 })

@@ -1,6 +1,6 @@
 <template>
-    <div class="mx-56">
-        <UserGrid :users="users"/>
+    <div class="mx-56 my-8">
+            <UserGrid :users="users" :cookie="cookie"/>
     </div>
 </template>
 <script>
@@ -10,6 +10,7 @@ import UserGrid from "@/components/UserGrid.vue";
 export default {
     name: "UsersView",
     components: {UserGrid},
+    props: ['cookie'],
     data() {
         return {
             users: [],

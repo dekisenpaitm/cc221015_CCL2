@@ -5,7 +5,9 @@
             {{ users.name }}
             </div>
         <div class="flex justify-end mx-4 my-4"><router-link :to="'users/'+ users.userID">
-            <button class="btn-wide btn btn-accent normal-case text-xl">View Profile</button>
+            <div v-if="cookie">
+            <button v-if="cookie.role === 'admin'" class="btn-wide btn btn-accent normal-case text-xl">View Profile</button>
+            </div>
         </router-link>
         </div>
         <div class="collapse-content">
@@ -23,7 +25,7 @@
 
 export default {
   name: "UserGridItem",
-  props: ["users"],
+  props: ['users', 'cookie'],
 };
 </script>
 

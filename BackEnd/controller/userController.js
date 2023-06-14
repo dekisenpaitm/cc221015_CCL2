@@ -6,7 +6,7 @@ const authenticationService = require("../services/authentication");
 
 //// Models
 const userModel = require("../models/userModel");
-const {authenticateUser, authenticateJWT} = require("../services/authentication");
+const {authenticateUser} = require("../services/authentication");
 
 //// Functions
 /**
@@ -37,8 +37,12 @@ function viewUsers(req, res, next) {
 function viewUser(req, res, next) {
         userModel.getUser(parseInt(req.params.id))
             .then(user => {
-                //let hasAccess = authenticationService.checkAccess(req.user.role, req.user.id, user.userID)
-                res.send(user);
+                let hasAccess = authenticationService.checkAccess(req.user.role, req.user.id, user.userID)
+                if(hasAccess){
+                    res.send(user);
+                } else {
+                    console.log("no access")
+                }
             })
             .catch((err) => {
                 res.status(404)
@@ -58,8 +62,8 @@ function viewUser(req, res, next) {
 function register(req,res,next){
     userModel.addUser(req.body)
     .then( user => {
-        authenticateUser({uname: req.body.name, pw: req.body.originalPassword}, [user], res)
-            .then(r=>{
+        authenticateUser({uname: req.body.name, pw: req.body.originalPassword}, [user], res).then(user => {
+            res.send(req.user);
         });
     })
         .catch(error => res.sendStatus(500))
