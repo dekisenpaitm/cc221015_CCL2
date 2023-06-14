@@ -123,6 +123,7 @@ function login(req,res,next){
  * @param next Possible-Middleware
  */
 function logout(req,res,next){
+    console.log("i happened")
     res.cookie('accessToken', '', {maxAge: 0});
     res.send(200);
 }

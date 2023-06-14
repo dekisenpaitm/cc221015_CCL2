@@ -9,6 +9,7 @@ router.route('/')
     .get((req,res,next)=>{
         res.status(200);
         res.send(JSON.stringify(req.user));
+        console.log(req.user);
     });
 
 //// Exports

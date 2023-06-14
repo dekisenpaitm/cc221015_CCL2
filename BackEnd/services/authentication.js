@@ -12,15 +12,11 @@ const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
  * @param res The HTTP-Response
  */
 async function authenticateUser({uname, pw} , users, res){
-    console.log(uname, pw)
     const user = users.find(u => {
         return u.name === uname
     });
     //returns pending promise --> doesn't render true
     if (user && await checkPassword(pw, user.password)) {
-        console.log(user);
-        console.log("checking the password: " + user, pw, user.password)
-        console.log("I checked the PW")
     // Generate an access token
         const payload =
             {
@@ -30,7 +26,6 @@ async function authenticateUser({uname, pw} , users, res){
             };
         const accessToken = jwt.sign(payload, ACCESS_TOKEN_SECRET, { expiresIn: '1000d' });
         res.cookie('accessToken', accessToken);
-        console.log("this is the accessToken: " + accessToken)
     } else {
         console.log("authenticate went wrong")
     }
@@ -43,6 +38,7 @@ async function authenticateUser({uname, pw} , users, res){
  * @param next Possible-Middleware
  */
 function authenticateJWT(req, res, next){
+    console.table(req.cookies);
     const token = req.cookies['accessToken'];
     if (token) {
         jwt.verify(token, ACCESS_TOKEN_SECRET, (err, userToken) => {
@@ -58,9 +54,11 @@ function authenticateJWT(req, res, next){
                 name: userToken.name,
                 role: userToken.role
             };
+            console.log(req.user);
             next();
         });
     } else {
+        console.log("wrong")
         req.errorStatus = 401;
         next();
     }

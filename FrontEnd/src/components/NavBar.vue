@@ -31,8 +31,9 @@ export default {
     },
     methods: {
         getData() {
-            axios.get(`http://localhost:3000/`)
+            axios.get(`http://localhost:3000/`, {withCredentials:true})
                 .then((response) => {
+                    console.log(response);
                     this.users = response.data;
                 })
                 .catch((error) => {
