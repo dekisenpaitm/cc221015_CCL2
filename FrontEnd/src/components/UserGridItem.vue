@@ -1,12 +1,22 @@
 <template>
-  <div>
-    <img v-bind:src="users.userID" />
-    <h3>{{ users.name }}</h3>
-    <p>{{ users.email }}</p>
-      <router-link :to="'users/'+ users.userID">
-      <button>View Details</button>
-    </router-link>
-  </div>
+    <div class="collapse bg-base-200">
+        <input type="checkbox" />
+        <div class="collapse-title text-3xl font-medium">
+            {{ users.name }}
+            </div>
+        <div class="flex justify-end mx-4 my-4"><router-link :to="'users/'+ users.userID">
+            <button class="btn-wide btn btn-accent normal-case text-xl">View Profile</button>
+        </router-link>
+        </div>
+        <div class="collapse-content">
+            <img v-bind:key="users.userID"/>
+            <p>UserID: {{ users.userID }}</p>
+            <p>UserName: {{ users.name }}</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
 </template>
 
 <script>
@@ -17,33 +27,5 @@ export default {
 };
 </script>
 
-<style scoped>
-.product-item {
-  align-items: center;
-  border-radius: 8px;
-  box-shadow: 0px 2px 5px #888;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 2%;
-  padding: 20px;
-  position: relative;
-  width: 32%;
-}
-
-.product-name {
-  margin-bottom: 0;
-}
-
-img {
-  height: 200px;
-  width: 200px;
-}
-
-a {
-  width: 100%;
-}
-
-button {
-  width: 100%;
-}
+<style>
 </style>

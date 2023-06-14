@@ -1,16 +1,15 @@
 <template>
-<div>
-    <UserGrid :users="users" />
-</div>
+    <div class="mx-56">
+        <UserGrid :users="users"/>
+    </div>
 </template>
-
 <script>
 import axios from "axios";
 import UserGrid from "@/components/UserGrid.vue";
 
 export default {
     name: "UsersView",
-    components: { UserGrid },
+    components: {UserGrid},
     data() {
         return {
             users: [],
@@ -21,7 +20,8 @@ export default {
             withCredentials: true,
             headers: {
                 'Content-Type': 'application/json'
-            }})
+            }
+        })
             .then((response) => {
                 this.users = response.data;
             })

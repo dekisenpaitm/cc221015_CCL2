@@ -1,34 +1,59 @@
 <template>
-<div>
-    <button v-on:click="userLogout" class="btn btn-accent">Button</button>
-</div>
+    <div class="flex flex-col items-center">
+        <div class="w-full">
+            <div class="w-full">
+                <img src="../images/banner.png" class="w-full" />
+            </div>
+        </div>
+        <div class="divider"></div>
+
+        <div class="grid hero-content card bg-base-300 rounded-box place-items-center">
+            <titel>
+                <h1>Lorem Ipsum</h1>
+                <br>
+                <p>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et
+                    dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                    rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+                    amet,
+                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat,
+                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                    gubergren, no sea
+                    takimata sanctus est Lorem ipsum dolor sit amet.
+                </p>
+            </titel>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grid hero-content card bg-base-300 rounded-box place-items-center">
+            <titel>
+                <h1>Lorem Ipsum</h1>
+                <br>
+                <p>
+                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                    labore et
+                    dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
+                    rebum. Stet
+                    clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+                    amet,
+                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                    aliquyam erat,
+                    sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                    gubergren, no sea
+                    takimata sanctus est Lorem ipsum dolor sit amet.
+                </p>
+            </titel>
+        </div>
+    </div>
 </template>
 
+
 <script>
-import axios from "axios";
-
-export default {
-    mounted(){
-      axios.get('http://localhost:3000/', {
-          withCredentials: true,
-          headers: {
-              'Content-Type': 'application/json'
-          }})
-    },
-    methods:{
-        userLogout(){
-            console.log("loggedOut");
-            axios.get('http://localhost:3000/logout',{
-                withCredentials: true,
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(response => {
-                window.location.href = '/'
-            })
-        }
-
-    }
-}
 </script>
 
+<script setup>
+</script>
