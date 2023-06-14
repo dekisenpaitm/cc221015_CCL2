@@ -5,6 +5,7 @@
         <p>Email: {{user.email}}</p>
         <p>Role: {{user.role}}</p>
         <button v-on:click="deleteUser" class="btn btn-accent">Delete</button>
+        <button v-on:click="editUser" class="btn btn-accent">Edit</button>
 
     </div>
 </template>
@@ -20,7 +21,11 @@ export default {
         };
     },
     created() {
-        axios.get(`http://localhost:3000/users/${this.$route.params.id}`)
+        axios.get(`http://localhost:3000/users/${this.$route.params.id}`, {
+            withCredentials: true,
+            headers: {
+                'Content-Type': 'application/json'
+            }})
             .then((response) => {
                 this.user = response.data;
             })
@@ -29,17 +34,20 @@ export default {
             });
     },
     methods: {
-        deleteUser: function(){
-            axios.delete(`http://localhost:3000/users/${this.$route.params.id}/delete`)
+        deleteUser: function() {
+            axios.delete(`http://localhost:3000/users/${this.$route.params.id}/delete`, {withCredentials:true})
                 .then((response) => {
                     this.user = response.data;
-                    window.location.href ='/';
+                    window.location.href = '/';
                 })
                 .catch((error) => {
                     console.error(error);
                 });
+        },
+        editUser: function(){
+            window.location.href =`/users/edit/${this.$route.params.id}`
         }
-}
+    }
 };
 </script>
 

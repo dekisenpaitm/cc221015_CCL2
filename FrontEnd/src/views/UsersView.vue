@@ -17,7 +17,11 @@ export default {
         };
     },
     created() {
-        axios.get(`http://localhost:3000/users`)
+        axios.get(`http://localhost:3000/users`, {
+            withCredentials: true,
+            headers: {
+                'Content-Type': 'application/json'
+            }})
             .then((response) => {
                 this.users = response.data;
             })

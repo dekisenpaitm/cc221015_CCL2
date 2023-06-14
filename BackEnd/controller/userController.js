@@ -6,7 +6,7 @@ const authenticationService = require("../services/authentication");
 
 //// Models
 const userModel = require("../models/userModel");
-const {authenticateUser} = require("../services/authentication");
+const {authenticateUser, authenticateJWT} = require("../services/authentication");
 
 //// Functions
 /**
@@ -57,8 +57,10 @@ function viewUser(req, res, next) {
  */
 function register(req,res,next){
     userModel.addUser(req.body)
-    .then(user => {
-        authenticateUser({uname: req.body.name, pw: req.body.originalPassword}, [user], res).then(r => {});
+    .then( user => {
+        authenticateUser({uname: req.body.name, pw: req.body.originalPassword}, [user], res)
+            .then(r=>{
+        });
     })
         .catch(error => res.sendStatus(500))
 }
@@ -78,9 +80,8 @@ function deleteUser(req,res,next){
         data => {
             res.send(
                 {
-                    error: "",
+                    error: "user deleted",
                     status: 200,
-                    redirect: "/users/"
                 }
             );
         }
@@ -90,11 +91,37 @@ function deleteUser(req,res,next){
             {
                 error: error,
                 status: 500,
-                redirect: "/"
             }
         );
     })
 
+}
+function getUserData(req, res, next) {
+    userModel.getUser(parseInt(req.params.id))
+        .then(user => {
+            res.send(user)
+        })
+        .catch(error => res.sendStatus(500))
+}
+function editUser(req, res, next) {
+    console.log("editUSER");
+    let hasAccess = authenticationService.checkAccess(req.user.role, parseInt(req.user.id), parseInt(req.params.id));
+    if (hasAccess) {
+        userModel.updateUser(req.body, req.params.id)
+            .then(user => {
+                let owns = authenticationService.ownership(parseInt(req.user.id), parseInt(req.params.id));
+                if (owns) {
+                    authenticationService.updateJWT(res, req.body);
+                }
+                res.send(req.user);
+                res.sendStatus(200);
+            })
+            .catch(error => res.sendStatus(500))
+    } else {
+        console.log("no rights");
+        res.sendStatus(403);
+        next("You don't have the rights to do this");
+    }
 }
 
 /**
@@ -125,7 +152,7 @@ function login(req,res,next){
 function logout(req,res,next){
     console.log("i happened")
     res.cookie('accessToken', '', {maxAge: 0});
-    res.send(200);
+    res.sendStatus(200);
 }
 
 
@@ -137,4 +164,6 @@ module.exports = {
     deleteUser,
     login,
     logout,
+    getUserData,
+    editUser
 };

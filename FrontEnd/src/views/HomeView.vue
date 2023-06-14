@@ -8,7 +8,13 @@
 import axios from "axios";
 
 export default {
-
+    mounted(){
+      axios.get('http://localhost:3000/', {
+          withCredentials: true,
+          headers: {
+              'Content-Type': 'application/json'
+          }})
+    },
     methods:{
         userLogout(){
             console.log("loggedOut");
@@ -22,7 +28,7 @@ export default {
             })
         }
 
-}
+    }
 }
 </script>
 

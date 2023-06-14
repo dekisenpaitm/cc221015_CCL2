@@ -54,7 +54,7 @@ function authenticateJWT(req, res, next){
                 name: userToken.name,
                 role: userToken.role
             };
-            console.log(req.user);
+            console.log("authenticate JWT: " + req.user);
             next();
         });
     } else {

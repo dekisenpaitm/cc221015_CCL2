@@ -16,5 +16,9 @@ router.route('/:id')
 router.route('/:id/delete')
     .delete(userController.deleteUser);
 
+router.route('/:id/edit')
+    .get(userController.getUserData)
+    .put(userController.editUser);
+
 //// Modules
 module.exports = router;

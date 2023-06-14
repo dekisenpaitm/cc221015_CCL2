@@ -5,6 +5,7 @@ import RegisterView from "@/views/RegisterView.vue";
 import UserView from "@/views/UserView.vue";
 import LoginView from "@/views/LoginView.vue";
 import UsersView from "@/views/UsersView.vue";
+import EditView from "@/views/EditView.vue";
 
 
 const router = createRouter({
@@ -39,6 +40,11 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: LoginView
+    },
+    {
+      path: '/users/edit/:id',
+      name: 'edit',
+      component: EditView
     },
   ]
 })

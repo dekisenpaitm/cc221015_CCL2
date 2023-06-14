@@ -33,17 +33,15 @@ export default {
                 name: this.name,
                 email: this.email,
                 password: this.password,
-            })
-                .then(response => {
-                    window.location.href = '/'
-                })
+            }, {
+                withCredentials: true,
+                headers: {
+                    'Content-Type': 'application/json'
+                }})
                 .catch(error => {
                     console.error(error);
                 });
-            this.name = '';
-            this.email = '';
-            this.password = '';
-            this.passwordConfirmation = '';
+            window.location.href = '/login'
         }
     }
 };

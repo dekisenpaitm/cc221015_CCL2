@@ -78,10 +78,31 @@ let deleteUser = (id) => new Promise ((resolve, reject) => {
 })
 
 
+let updateUser = (userData, userId) => new Promise(async(resolve, reject)=>{
+    console.log("UPDATING");
+    userData.password = await bcrypt.hash(userData.password, 10);
+    let sql = "UPDATE users SET" +
+        " name = "+ db.escape(userData.name) +
+        ", email = "+ db.escape(userData.email) +
+        ", password = "+ db.escape(userData.password)+
+        " WHERE userID = " + parseInt(userId);
+    userData.userID = parseInt(userId);
+    console.log(sql);
+    db.query(sql, function (err, result, fields){
+        if(err) {
+            reject(err)
+        }
+        console.log(result.affectedRows + " rows have been affected")
+        resolve(result)
+    })
+})
+
+
 //// Exports
 module.exports = {
     getUsers,
     getUser,
     addUser,
-    deleteUser
+    deleteUser,
+    updateUser
 };
