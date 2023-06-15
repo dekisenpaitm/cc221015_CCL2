@@ -3,7 +3,6 @@ const db = require('../services/database.js').config;
 
 let getPixels = () => new Promise((resolve, reject) => {
     let sql = "SELECT * FROM content WHERE type = 'pixel'";
-    console.log(sql);
     db.query(sql, function (err, games, fields) {
         if (err) {
             reject(err)

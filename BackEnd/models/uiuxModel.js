@@ -3,7 +3,6 @@ const db = require('../services/database.js').config;
 
 let getUiuxs = () => new Promise((resolve, reject) => {
     let sql = "SELECT * FROM content WHERE type = 'uiux'";
-    console.log(sql);
     db.query(sql, function (err, uiuxs, fields) {
         if (err) {
             reject(err)

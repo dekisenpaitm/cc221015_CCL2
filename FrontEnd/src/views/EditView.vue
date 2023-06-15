@@ -35,7 +35,6 @@ export default {
                 }
             })
             .then((response) => {
-                console.log(response);
                 this.user = response.data;
             })
             .catch((error) => {

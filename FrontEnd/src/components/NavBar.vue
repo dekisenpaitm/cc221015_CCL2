@@ -35,7 +35,7 @@
                     <li><a v-on:click="userLogout">Logout</a></li>
                 </ul>
             </div>
-            <div v-else>
+            <div class="flex-none" v-else>
                 <router-link to="/login">
                     <a class="btn-wide btn btn-accent normal-case text-xl">Login</a>
                 </router-link>
@@ -58,7 +58,6 @@ export default {
     },
     methods:{
         userLogout(){
-            console.log("loggedOut");
             axios.get('http://localhost:3000/logout',{
                 withCredentials: true,
                 headers: {

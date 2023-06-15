@@ -47,7 +47,7 @@ export default {
         })
             .then((response) => {
                 this.user = response.data;
-                console.log(this.user);
+
             })
             .catch((error) => {
                 console.error(error);

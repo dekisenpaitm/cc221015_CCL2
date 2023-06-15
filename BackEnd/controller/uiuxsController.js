@@ -1,4 +1,4 @@
-const uiuxModel = require("../models/gameModel");
+const uiuxModel = require("../models/uiuxModel");
 
 function viewUiuxs (req,res,next){
     uiuxModel.getUiuxs()

@@ -22,7 +22,6 @@ onMounted(async () => {
     try {
         const response = await axios.get('http://localhost:3000/', {withCredentials: true});
          loggedIn.value = response.data;
-        console.log(loggedIn.value);
     } catch (error) {
         console.error(error);
     }

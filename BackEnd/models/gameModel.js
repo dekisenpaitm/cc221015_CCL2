@@ -1,9 +1,8 @@
 //// Services
 const db = require('../services/database.js').config;
 
-let getUiuxs = () => new Promise((resolve, reject) => {
-    let sql = "SELECT * FROM content WHERE type = 'uiux'";
-    console.log(sql);
+let getGames = () => new Promise((resolve, reject) => {
+    let sql = "SELECT * FROM content WHERE type = 'game'";
     db.query(sql, function (err, games, fields) {
         if (err) {
             reject(err)
@@ -13,8 +12,8 @@ let getUiuxs = () => new Promise((resolve, reject) => {
     })
 });
 
-let getUiux = (contentID) => new Promise ((resolve, reject) => {
-    let sql = "SELECT * FROM content WHERE type = 'uiux' AND contentID =" + contentID;
+let getGame = (contentID) => new Promise ((resolve, reject) => {
+    let sql = "SELECT * FROM content WHERE type = 'game' AND contentID =" + contentID;
     db.query(sql, function (err, game, fields) {
         if (err) {
             reject(err)
@@ -26,6 +25,6 @@ let getUiux = (contentID) => new Promise ((resolve, reject) => {
 
 //// Exports
 module.exports = {
-    getUiuxs,
-    getUiux,
+    getGames,
+    getGame,
 };

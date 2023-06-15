@@ -56,7 +56,6 @@ function authenticateJWT(req, res, next){
             next();
         });
     } else {
-        console.log("wrong")
         req.errorStatus = 401;
         next();
     }
