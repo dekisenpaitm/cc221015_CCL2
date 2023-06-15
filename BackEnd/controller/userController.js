@@ -41,7 +41,6 @@ function viewUser(req, res, next) {
                 if(hasAccess){
                     res.send(user);
                 } else {
-                    console.log("no access")
                 }
             })
             .catch((err) => {
@@ -108,7 +107,6 @@ function getUserData(req, res, next) {
         .catch(error => res.sendStatus(500))
 }
 function editUser(req, res, next) {
-    console.log("editUSER");
     let hasAccess = authenticationService.checkAccess(req.user.role, parseInt(req.user.id), parseInt(req.params.id));
     if (hasAccess) {
         userModel.updateUser(req.body, req.params.id)
@@ -122,7 +120,6 @@ function editUser(req, res, next) {
             })
             .catch(error => res.sendStatus(500))
     } else {
-        console.log("no rights");
         res.sendStatus(403);
         next("You don't have the rights to do this");
     }
@@ -154,7 +151,6 @@ function login(req,res,next){
  * @param next Possible-Middleware
  */
 function logout(req,res,next){
-    console.log("i happened")
     res.cookie('accessToken', '', {maxAge: 0});
     res.sendStatus(200);
 }

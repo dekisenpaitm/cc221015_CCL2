@@ -27,7 +27,6 @@ async function authenticateUser({uname, pw} , users, res){
         const accessToken = jwt.sign(payload, ACCESS_TOKEN_SECRET, { expiresIn: '1000d' });
         res.cookie('accessToken', accessToken);
     } else {
-        console.log("authenticate went wrong")
     }
 };
 
@@ -54,7 +53,6 @@ function authenticateJWT(req, res, next){
                 name: userToken.name,
                 role: userToken.role
             };
-            console.log("authenticate JWT: " + req.user);
             next();
         });
     } else {

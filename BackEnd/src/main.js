@@ -17,6 +17,9 @@ const usersRouter = require('../routes/users');
 const registerRouter = require('../routes/register');
 const loginRouter = require('../routes/login');
 const logoutRouter = require('../routes/logout');
+const gamesRouter = require('../routes/games');
+const pixelsRouter = require('../routes/pixels');
+const uiuxRouter = require('../routes/uiuxs');
 const {authenticateJWT} = require("../services/authentication");
 
 //// App - Configuration
@@ -35,6 +38,9 @@ app.use('/users', usersRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
+app.use('/games', gamesRouter);
+app.use('/pixels', pixelsRouter);
+app.use('/uiuxs', uiuxRouter);
 
 app.use(errorHandler);
 app.all('*', notFound);
