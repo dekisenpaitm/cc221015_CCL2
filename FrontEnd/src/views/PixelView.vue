@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-56 my-8">
+    <div>
         <ContentGrid :contents="contents"/>
     </div>
 </template>
