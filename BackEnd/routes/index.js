@@ -1,6 +1,5 @@
 //// Modules
 const express = require('express');
-const {authenticateJWT} = require("../services/authentication");
 
 //// Routes
 const router = express.Router();

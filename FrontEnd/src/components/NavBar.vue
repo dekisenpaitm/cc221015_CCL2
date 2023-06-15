@@ -14,22 +14,22 @@
             <router-link to="/uiux">
                 <a class="btn btn-ghost normal-case text-xl">UI/UX</a>
             </router-link>
-            <router-link v-if="cookie" to="/users">
+            <router-link v-if="loggedIn" to="/users">
                 <a class="btn btn-ghost normal-case text-xl">Users</a>
             </router-link>
             <router-link to="/register">
-                <a v-if="!cookie" class="btn btn-ghost normal-case text-xl">Register</a>
+                <a v-if="!loggedIn" class="btn btn-ghost normal-case text-xl">Register</a>
             </router-link>
         </div>
         <div class="flex-none">
-            <div v-if="cookie" class="dropdown dropdown-end">
-                <label v-if="cookie" tabindex="0" class="btn btn-ghost btn-circle avatar">
+            <div v-if="loggedIn" class="dropdown dropdown-end">
+                <label v-if="loggedIn" tabindex="0" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full con">
                         <img src="./icons/profile.png"/>
                     </div>
                 </label>
                 <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                    <router-link :to="'/users/' + cookie.id">
+                    <router-link :to="'/users/' + loggedIn.id">
                         <li><a>Profile</a></li>
                     </router-link>
                     <li><a v-on:click="userLogout">Logout</a></li>
@@ -49,7 +49,7 @@
 <script>
 import axios from "axios";
 export default {
-    props:['cookie'],
+    props:['loggedIn'],
     data() {
         return {
             users: {

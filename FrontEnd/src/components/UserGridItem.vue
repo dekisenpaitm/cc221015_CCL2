@@ -5,8 +5,8 @@
             {{ users.name }}
             </div>
         <div class="flex justify-end mx-4 my-4"><router-link :to="'users/'+ users.userID">
-            <div v-if="cookie">
-            <button v-if="cookie.role === 'admin'" class="btn-wide btn btn-accent normal-case text-xl">View Profile</button>
+            <div v-if="loggedIn">
+            <button v-if="loggedIn.role === 'admin'" class="btn-wide btn btn-accent normal-case text-xl">View Profile</button>
             </div>
         </router-link>
         </div>
@@ -25,7 +25,7 @@
 
 export default {
   name: "UserGridItem",
-  props: ['users', 'cookie'],
+  props: ['users', 'loggedIn'],
 };
 </script>
 
