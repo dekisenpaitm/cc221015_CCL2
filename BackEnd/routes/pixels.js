@@ -9,4 +9,7 @@ router.route('/')
 router.route('/:id')
 .get(pixelController.viewPixel);
 
+router.route('/:id/comments')
+    .get(pixelController.viewPixelComments);
+
 module.exports = router;

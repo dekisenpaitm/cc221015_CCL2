@@ -29,7 +29,19 @@ function viewGame(req, res, next) {
         })
 }
 
+function viewGameComments(req, res, next) {
+    gameModel.getGameComments(parseInt(req.params.id))
+        .then(gameComments => {
+            res.send(gameComments);
+        })
+        .catch((err) => {
+            res.status(404)
+            next(err);
+        })
+}
+
 module.exports = {
     viewGames,
-    viewGame
+    viewGame,
+    viewGameComments
 }

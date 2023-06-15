@@ -23,8 +23,23 @@ let getPixel = (contentID) => new Promise ((resolve, reject) => {
     })
 })
 
+let getPixelComments = (contentID) => new Promise ((resolve, reject) => {
+    let sql = "SELECT * FROM comment"+
+        " INNER JOIN content "+
+        "ON comment.contentID = content.contentID "+
+        "WHERE comment.contentID=" + parseInt(contentID);
+    db.query(sql, function (err, pixelComments, fields) {
+        if (err) {
+            reject(err)
+        } else {
+            resolve(pixelComments)
+        }
+    })
+})
+
 //// Exports
 module.exports = {
     getPixels,
     getPixel,
+    getPixelComments
 };

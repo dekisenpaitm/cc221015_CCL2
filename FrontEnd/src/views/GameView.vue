@@ -1,15 +1,16 @@
 <template>
-    <div class="mx-56 my-8">
+    <div class="flex flex-row flex-wrap">
         <ContentGrid :contents="contents"/>
     </div>
 </template>
 <script>
 import axios from "axios";
 import ContentGrid from "@/components/ContentGrid.vue";
+import ContentGridItem from "@/components/ContentGridItem.vue";
 
 export default {
     name: "GameView",
-    components: {ContentGrid},
+    components: {ContentGridItem, ContentGrid},
     data() {
         return {
             contents: [],

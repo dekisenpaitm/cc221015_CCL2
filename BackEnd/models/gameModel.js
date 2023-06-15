@@ -23,8 +23,23 @@ let getGame = (contentID) => new Promise ((resolve, reject) => {
     })
 })
 
+let getGameComments = (contentID) => new Promise ((resolve, reject) => {
+    let sql = "SELECT * FROM comment"+
+        " INNER JOIN content "+
+        "ON comment.contentID = content.contentID "+
+        "WHERE comment.contentID=" + parseInt(contentID);
+    db.query(sql, function (err, gameComments, fields) {
+        if (err) {
+            reject(err)
+        } else {
+            resolve(gameComments)
+        }
+    })
+})
+
 //// Exports
 module.exports = {
     getGames,
     getGame,
+    getGameComments
 };

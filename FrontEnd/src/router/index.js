@@ -9,6 +9,7 @@ import EditView from "@/views/EditView.vue";
 import GameView from "@/views/GameView.vue";
 import PixelView from "@/views/PixelView.vue";
 import UIUXView from "@/views/UIUXView.vue";
+import GameDescriptionView from "@/views/GameDescriptionView.vue";
 
 
 const router = createRouter({
@@ -53,6 +54,11 @@ const router = createRouter({
       path: '/games',
       name: 'games',
       component: GameView
+    },
+    {
+      path: '/games/:id',
+      name: 'gameDescription',
+      component: GameDescriptionView
     },
     {
       path: '/pixel',
