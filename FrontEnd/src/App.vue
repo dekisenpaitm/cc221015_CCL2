@@ -1,11 +1,10 @@
 <template>
-    <div class="flex flex-col">
-        <NavBar :loggedIn="loggedIn" class="sticky top-0 z-50"/>
-
-        <div class="flex-grow min-h-screen mx-28 my-8">
-            <RouterView :loggedIn="loggedIn"/>
+    <div class="min-h-screen flex flex-col">
+        <NavBar :loggedIn="loggedIn" class="sticky top-0 z-50" />
+        <div class="flex flex-grow">
+            <RouterView :loggedIn="loggedIn" />
         </div>
-        <Footer />
+        <Footer class="inset-x-0 bottom-0" />
     </div>
 </template>
 

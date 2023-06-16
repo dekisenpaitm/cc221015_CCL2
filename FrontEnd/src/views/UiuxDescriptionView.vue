@@ -11,18 +11,18 @@ import CommentsGrid from "@/components/CommentsGrid.vue";
 import CommentBox from "@/components/CommentBox.vue";
 
 export default {
-    name: "GameDescriptionView",
+    name: "uiuxDescriptionView",
     components: {CommentBox, CommentsGrid},
     props:['loggedIn'],
     data() {
         return {
-            contentType:"games",
+            contentType:"uiuxs",
             game:{},
             comments:[]
         };
     },
     created() {
-        axios.get(`http://localhost:3000/games/${this.$route.params.id}`, {
+        axios.get(`http://localhost:3000/uiuxs/${this.$route.params.id}`, {
             withCredentials: true,
             headers: {
                 'Content-Type': 'application/json'

@@ -1,6 +1,7 @@
 <template>
-    <div v-if="user.userID || user.role === 'admin'">
-            <div class="hero min-h-screen bg-base-200">
+    <!--TODO: add a background picture to the first div!-->
+    <div v-if="user.userID || user.role === 'admin'" class="flex flex-grow items-center justify-center">
+            <div class="hero">
                 <div class="hero-content flex-col lg:flex-row">
                     <img class="max-w-sm rounded-lg shadow-2xl" src="../images/Avatar.png"/>
                     <div>

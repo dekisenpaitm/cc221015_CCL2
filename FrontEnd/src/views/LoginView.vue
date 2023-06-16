@@ -1,7 +1,8 @@
 <template>
-    <div class="flex items-center justify-center">
-        <div class="flex-grow">
-            <div class="hero bg-base-200 h-screen">
+    <div class="flex flex-grow items-center justify-center">
+        <div class="flex-grow mx-28 my-4">
+            <div class="h-full">
+            <div class="hero">
                 <div class="hero-content flex-col lg:flex-row-reverse">
                     <div class="text-center lg:text-left">
                         <h1 class="text-5xl font-bold">Login now!</h1>
@@ -49,6 +50,7 @@
                     </form>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </template>

@@ -11,12 +11,12 @@ import CommentsGrid from "@/components/CommentsGrid.vue";
 import CommentBox from "@/components/CommentBox.vue";
 
 export default {
-    name: "GameDescriptionView",
+    name: "PixelDescriptionView",
     components: {CommentBox, CommentsGrid},
     props:['loggedIn'],
     data() {
         return {
-            contentType:"games",
+            contentType:"pixels",
             game:{},
             comments:[]
         };

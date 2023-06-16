@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-56 my-8">
+    <div class="flex justify-center flex-row flex-wrap mx-28">
             <UserGrid :users="users" :loggedIn="loggedIn"/>
     </div>
 </template>

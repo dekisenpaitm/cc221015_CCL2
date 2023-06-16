@@ -7,7 +7,7 @@
                 <div class="card-body items-center text-center">
                     <h2 class="card-title">{{content.name}}</h2>
                     <p>{{content.description}}</p>
-                    <router-link :to="'games/'+ content.contentID"><div class="card-actions">
+                    <router-link :to="`${contentType}/`+ content.contentID"><div class="card-actions">
                         <button class="btn btn-accent">More!</button>
                     </div></router-link>
                 </div>
@@ -20,7 +20,7 @@
 <script>
 export default {
     name: "ContentGridItem",
-    props:['content']
+    props:['content', 'contentType']
 }
 </script>
 

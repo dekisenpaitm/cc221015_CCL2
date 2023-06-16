@@ -8,7 +8,7 @@
             <router-link to="/games">
                 <a class="btn btn-ghost normal-case text-xl">GameDev</a>
             </router-link>
-            <router-link to="/pixel">
+            <router-link to="/pixels">
                 <a class="btn btn-ghost normal-case text-xl">PixelArt</a>
             </router-link>
             <router-link to="/uiux">

@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <ContentGrid :contents="contents"/>
+    <div class="flex justify-center flex-row flex-wrap mx-28">
+        <ContentGrid :contents="contents" :contentType="contentType"/>
     </div>
 </template>
 <script>
@@ -12,6 +12,7 @@ export default {
     components: {ContentGrid},
     data() {
         return {
+            contentType:"pixels",
             contents: [],
         };
     },
@@ -24,7 +25,6 @@ export default {
         })
             .then((response) => {
                 this.contents = response.data;
-                console.log(response);
             })
             .catch((error) => {
                 console.error(error);

@@ -1,15 +1,16 @@
-const express = require ('express');
+const express = require('express');
 const gamesController = require('../controller/gameController');
 
 const router = express.Router();
 
 router.route('/')
-.get(gamesController.viewGames);
+    .get(gamesController.viewGames);
 
 router.route('/:id')
-.get(gamesController.viewGame);
+    .get(gamesController.viewGame);
 
 router.route('/:id/comments')
-    .get(gamesController.viewGameComments);
+    .get(gamesController.viewGameComments)
+    .post(gamesController.addGameComment)
 
 module.exports = router;

@@ -1,7 +1,4 @@
 const gameModel = require("../models/gameModel");
-const userModel = require("../models/userModel");
-const authenticationService = require("../services/authentication");
-
 
 /**
  * This function sends the games-data to the view
@@ -40,8 +37,17 @@ function viewGameComments(req, res, next) {
         })
 }
 
+function addGameComment(req,res,next){
+    gameModel.addGameComment(req.user.id, req.user.name,req.body)
+        .then(comment => {
+                res.send(comment);
+            })
+        .catch(error => res.sendStatus(500))
+}
+
 module.exports = {
     viewGames,
     viewGame,
-    viewGameComments
+    viewGameComments,
+    addGameComment
 }

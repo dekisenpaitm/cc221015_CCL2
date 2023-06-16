@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import AboutView from "@/views/AboutView.vue";
+import HomeView from '@/views/HomeView.vue'
 import RegisterView from "@/views/RegisterView.vue";
 import UserView from "@/views/UserView.vue";
 import LoginView from "@/views/LoginView.vue";
@@ -10,6 +9,8 @@ import GameView from "@/views/GameView.vue";
 import PixelView from "@/views/PixelView.vue";
 import UIUXView from "@/views/UIUXView.vue";
 import GameDescriptionView from "@/views/GameDescriptionView.vue";
+import PixelDescriptionView from "@/views/PixelDescriptionView.vue";
+import UiuxDescriptionView from "@/views/UiuxDescriptionView.vue";
 
 
 const router = createRouter({
@@ -19,11 +20,6 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: AboutView
     },
     {
       path: '/register',
@@ -61,14 +57,24 @@ const router = createRouter({
       component: GameDescriptionView
     },
     {
-      path: '/pixel',
-      name: 'pixel',
+      path: '/pixels',
+      name: 'pixels',
       component: PixelView
+    },
+    {
+      path: '/pixels/:id',
+      name: 'pixelsDescription',
+      component: PixelDescriptionView
     },
     {
       path: '/uiux',
       name: 'uiux',
       component: UIUXView
+    },
+    {
+      path: '/uiuxs/:id',
+      name: 'uiuxs',
+      component: UiuxDescriptionView
     },
   ]
 })

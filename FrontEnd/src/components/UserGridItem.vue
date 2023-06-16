@@ -1,5 +1,5 @@
 <template>
-    <div class="collapse bg-base-200">
+    <div class="collapse bg-base-200 my-4">
         <input type="checkbox" />
         <div class="collapse-title text-3xl font-medium">
             {{ users.name }}

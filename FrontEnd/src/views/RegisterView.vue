@@ -1,5 +1,5 @@
 <template>
-    <div v-if="!loggedIn" class="hero min-h-screen bg-base-200">
+    <div v-if="!loggedIn" class="hero">
         <div class="hero-content flex-col lg:flex-row-reverse">
             <div class="text-center lg:text-left">
                 <h1 class="text-5xl font-bold">Register now!</h1>

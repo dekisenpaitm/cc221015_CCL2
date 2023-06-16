@@ -1,14 +1,17 @@
 <template>
-    <div class="collapse bg-base-200">
+    <div>
+    <div class="collapse bg-base-300 my-4">
         <input type="radio" name="my-accordion-1" checked="checked" />
         <div class="collapse-title text-xl font-medium">
-            Click to view full comment!
+            {{comment.commentTitel}} by {{comment.commentUserName}}
         </div>
         <div class="collapse-content">
             <p>CommentPosted: {{comment.commentDate}}</p>
+            <br>
             <p>Comment:
                 {{comment.body}}</p>
         </div>
+    </div>
     </div>
 </template>
 
