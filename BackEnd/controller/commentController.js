@@ -11,8 +11,8 @@ const commentModel = require("../models/commentModel");
  */
 function getComments(req, res, next) {
     commentModel.getComments(parseInt(req.params.id))
-        .then(gameComments => {
-            res.send(gameComments);
+        .then(comments => {
+            res.send(comments);
         })
         .catch((err) => {
             res.status(404)

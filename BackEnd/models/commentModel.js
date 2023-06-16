@@ -5,11 +5,11 @@ let getComments = (contentID) => new Promise ((resolve, reject) => {
         " INNER JOIN content "+
         "ON comment.contentID = content.contentID "+
         "WHERE comment.contentID=" + parseInt(contentID);
-    db.query(sql, function (err, gameComments, fields) {
+    db.query(sql, function (err, comments, fields) {
         if (err) {
             reject(err)
         } else {
-            resolve(gameComments)
+            resolve(comments)
         }
     })
 })
