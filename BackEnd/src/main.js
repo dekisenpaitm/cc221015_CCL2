@@ -20,6 +20,7 @@ const logoutRouter = require('../routes/logout');
 const gamesRouter = require('../routes/games');
 const pixelsRouter = require('../routes/pixels');
 const uiuxRouter = require('../routes/uiuxs');
+const commentsRouter = require('../routes/comments');
 const {authenticateJWT} = require("../services/authentication");
 
 //// App - Configuration
@@ -41,6 +42,7 @@ app.use('/logout', logoutRouter);
 app.use('/games', gamesRouter);
 app.use('/pixels', pixelsRouter);
 app.use('/uiuxs', uiuxRouter);
+app.use('/comments', commentsRouter);
 
 app.use(errorHandler);
 app.all('*', notFound);

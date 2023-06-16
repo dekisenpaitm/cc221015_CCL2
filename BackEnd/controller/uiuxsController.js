@@ -17,19 +17,7 @@ function viewUiux(req, res, next) {
         })
 }
 
-function viewUiuxComments(req, res, next) {
-    uiuxModel.getUiuxComments(parseInt(req.params.id))
-        .then(uiuxComments => {
-            res.send(uiuxComments);
-        })
-        .catch((err) => {
-            res.status(404)
-            next(err);
-        })
-}
-
 module.exports = {
     viewUiuxs,
     viewUiux,
-    viewUiuxComments
 }

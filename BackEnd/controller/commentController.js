@@ -1,0 +1,34 @@
+const commentModel = require("../models/commentModel");
+
+/**
+ * This function sends the games-data to the view
+ * This View shows all Games, which exist in the DB
+ * Preferred-Methode: GET
+ *
+ * @param req HTTP-Request
+ * @param res HTTP-Response
+ * @param next Possible-Middleware Callback
+ */
+function getComments(req, res, next) {
+    commentModel.getComments(parseInt(req.params.id))
+        .then(gameComments => {
+            res.send(gameComments);
+        })
+        .catch((err) => {
+            res.status(404)
+            next(err);
+        })
+}
+
+function postComment(req,res,next){
+    commentModel.postComment(req.user.id, req.user.name,req.body)
+        .then(comment => {
+            res.send(comment);
+        })
+        .catch(error => res.sendStatus(500))
+}
+
+module.exports = {
+    getComments,
+    postComment
+}

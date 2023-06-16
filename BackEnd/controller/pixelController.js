@@ -24,20 +24,8 @@ function viewPixel(req, res, next) {
             next(err);
         })
 }
-
-function viewPixelComments(req, res, next) {
-    pixelModel.getPixelComments(parseInt(req.params.id))
-        .then(pixelComments => {
-            res.send(pixelComments);
-        })
-        .catch((err) => {
-            res.status(404)
-            next(err);
-        })
-}
-
 module.exports = {
     viewPixels,
     viewPixel,
-    viewPixelComments
+
 }

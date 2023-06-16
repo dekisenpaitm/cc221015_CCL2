@@ -9,8 +9,4 @@ router.route('/')
 router.route('/:id')
     .get(gamesController.viewGame);
 
-router.route('/:id/comments')
-    .get(gamesController.viewGameComments)
-    .post(gamesController.addGameComment)
-
 module.exports = router;

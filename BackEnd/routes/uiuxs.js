@@ -8,7 +8,4 @@ router.route('/')
 router.route('/:id')
     .get(uiuxsController.viewUiux)
 
-router.route('/:id/comments')
-    .get(uiuxsController.viewUiuxComments)
-
 module.exports = router;
