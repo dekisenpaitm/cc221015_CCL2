@@ -1,8 +1,8 @@
 //// Services
 const db = require('../services/database.js').config;
 
-let getLikes = () => new Promise ((resolve, reject) => {
-    let sql = "SELECT * FROM userLikes";
+let getLikes = (id) => new Promise ((resolve, reject) => {
+    let sql = "SELECT * FROM userLikes WHERE contentID= " + id;
     db.query(sql, function (err, userLikes, fields) {
         if (err) {
             reject(err)

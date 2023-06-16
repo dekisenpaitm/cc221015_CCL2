@@ -1,5 +1,6 @@
 <template>
     <div class="flex flex-grow flex-col flex-wrap mx-28">
+        <Heart :loggedIn="loggedIn"/>
         <CommentBox :loggedIn="loggedIn" :contentType="contentType"/>
     <CommentsGrid/>
     </div>
@@ -9,10 +10,11 @@
 import axios from "axios";
 import CommentsGrid from "@/components/CommentsGrid.vue";
 import CommentBox from "@/components/CommentBox.vue";
+import Heart from "@/components/Heart.vue";
 
 export default {
     name: "GameDescriptionView",
-    components: {CommentBox, CommentsGrid},
+    components: {Heart, CommentBox, CommentsGrid},
     props: ['loggedIn'],
     data() {
         return {

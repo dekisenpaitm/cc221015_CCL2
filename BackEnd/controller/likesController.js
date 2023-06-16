@@ -1,8 +1,7 @@
 const likesModel = require("../models/likesModel");
 
 function getLikes(req, res, next) {
-    console.log(req.user.id)
-    likesModel.getLikes()
+    likesModel.getLikes(req.params.id)
         .then(userLikes => {
             res.send(userLikes);
         })
@@ -25,9 +24,8 @@ function getLike(req, res, next) {
 }
 
 function addLike(req,res,next) {
-    console.log("add a like")
-    console.log(req.user.id, req.params.id)
-    likesModel.postLike(parseInt(req.user.id), req.params.id)
+    console.log("i happened")
+    likesModel.postLike(req.user.id, req.params.id)
         .then(likedPost => {
             res.send(likedPost);
         })
