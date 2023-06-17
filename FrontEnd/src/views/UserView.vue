@@ -26,7 +26,12 @@
                 </div>
             </div>
     </div>
-    <div v-else>oops.. you're not supposed to be here</div>
+    <div v-else class="hero">
+        <div class="hero-content flex-col">
+            <div class="flex"><p>You don't have the rights to access this.</p></div>
+            <div class="flex"><router-link to="/"><button class="btn btn-accent">Back to Homepage</button></router-link></div>
+        </div>
+    </div>
 </template>
 
 <script>

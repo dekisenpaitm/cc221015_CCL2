@@ -1,8 +1,11 @@
 <template>
-    <div class="flex flex-grow flex-col flex-wrap mx-28">
-        <Heart />
-        <CommentBox :loggedIn="loggedIn" :contentType="contentType"/>
-    <CommentsGrid />
+    <div class="flex w-full flex-grow items-center justify-center mx-28 my-4">
+        <div class="w-full flex flex-col">
+            <ContentImage :content="pixel"/>
+            <Heart :loggedIn="loggedIn" />
+            <CommentBox :loggedIn="loggedIn" :contentType="contentType" />
+            <CommentsGrid />
+        </div>
     </div>
 </template>
 
@@ -11,15 +14,16 @@ import axios from "axios";
 import CommentsGrid from "@/components/CommentsGrid.vue";
 import CommentBox from "@/components/CommentBox.vue";
 import Heart from "@/components/Heart.vue";
+import ContentImage from "@/components/ContentImage.vue";
 
 export default {
     name: "PixelDescriptionView",
-    components: {Heart, CommentBox, CommentsGrid},
+    components: {ContentImage, Heart, CommentBox, CommentsGrid},
     props:['loggedIn'],
     data() {
         return {
             contentType:"pixels",
-            game:{},
+            pixel:{},
             comments:[]
         };
     },
@@ -31,7 +35,7 @@ export default {
             }
         })
             .then((response) => {
-                this.game = response.data;
+                this.pixel = response.data;
 
             })
             .catch((error) => {

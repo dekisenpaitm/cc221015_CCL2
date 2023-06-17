@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-base-300 p-4 rounded-lg shadow-md my-4">
+    <div class="bg-base-300 p-4 rounded-lg shadow-md my-2">
         <h3 class="text-lg font-bold mb-2">Post a Comment</h3>
         <form>
             <div class="mb-4">

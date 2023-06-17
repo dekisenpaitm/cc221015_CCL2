@@ -1,6 +1,6 @@
 <template>
     <div class="flex justify-center flex-row flex-wrap mx-28">
-            <UserGrid :users="users" :loggedIn="loggedIn"/>
+        <UserGrid :loggedIn="loggedIn" :users="users"/>
     </div>
 </template>
 <script>

@@ -1,12 +1,12 @@
 <template>
-    <div className="rating gap-1 my-4">
+    <div className="rating gap-1 my-2 mx-28 justify-end">
         <a v-if="userLike.length > 0">
             <input v-on:click="dislikeContent" type="radio" name="rating-3" className="mask mask-heart bg-white"/>
         </a>
         <a v-else>
             <input v-on:click="likeContent" type="radio" name="rating-3" className="mask mask-heart bg-gray-700"/>
         </a>
-        <div>{{ allLikes.length }}</div>
+        <div class="font-bold text-xl mx-2">{{ allLikes.length }}</div>
     </div>
 </template>
 
