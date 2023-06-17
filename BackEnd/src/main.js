@@ -29,7 +29,7 @@ app.use(cors({origin: true, credentials: true}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/images', express.static(path.join(__dirname, '../assets')));
-app.use(morgan("common"))
+//app.use(morgan("common"))
 
 //// App - Routes
 app.use(cookieParser());

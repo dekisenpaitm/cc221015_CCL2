@@ -30,7 +30,7 @@ export default {
         };
     },
     created() {
-        axios.get(`http://localhost:3000/games/${this.$route.params.id}`, {
+        axios.get(`http://localhost:3000/pixels/${this.$route.params.id}`, {
             withCredentials: true,
             headers: {
                 'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ export default {
         })
             .then((response) => {
                 this.pixel = response.data;
-
+                console.log(this.pixel)
             })
             .catch((error) => {
                 console.error(error);

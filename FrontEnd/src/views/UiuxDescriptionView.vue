@@ -37,7 +37,7 @@ export default {
             }
         })
             .then((response) => {
-                this.game = response.data;
+                this.uiux = response.data;
 
             })
             .catch((error) => {
