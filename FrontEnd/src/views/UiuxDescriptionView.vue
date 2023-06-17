@@ -3,6 +3,7 @@
         <div class="w-full flex flex-col">
             <ContentImage :content="uiux"/>
             <Heart :loggedIn="loggedIn" />
+            <DescriptionItem :content="uiux"/>
             <CommentBox :loggedIn="loggedIn" :contentType="contentType" />
             <CommentsGrid />
         </div>
@@ -15,10 +16,11 @@ import CommentsGrid from "@/components/CommentsGrid.vue";
 import CommentBox from "@/components/CommentBox.vue";
 import Heart from "@/components/Heart.vue";
 import ContentImage from "@/components/ContentImage.vue";
+import DescriptionItem from "@/components/DescriptionItem.vue";
 
 export default {
     name: "uiuxDescriptionView",
-    components: {ContentImage, Heart, CommentBox, CommentsGrid},
+    components: {DescriptionItem, ContentImage, Heart, CommentBox, CommentsGrid},
     props:['loggedIn'],
     data() {
         return {

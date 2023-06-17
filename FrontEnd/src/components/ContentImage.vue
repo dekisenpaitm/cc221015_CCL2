@@ -1,15 +1,13 @@
 <template>
-        <img class="mx-28" src="{{content.path}}" :alt="content.name">
-        {{content.path}}
+        <img :src="content.path" class="mx-28 my-4">
 </template>
 
 <script>
 export default {
-    name: "ContentImage",
-    props:['content']
-}
+        name: "ContentImage",
+        props: ['content'],
+};
 </script>
 
 <style scoped>
-
 </style>
