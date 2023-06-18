@@ -14,9 +14,7 @@
                     <router-link v-if="loggedIn" to="/users">
                         <li><a>Users</a></li>
                     </router-link>
-                    <router-link to="/register">
-                        <li><a v-if="!loggedIn">Register</a></li>
-                    </router-link>
+                        <li><router-link to="/register"><a v-if="!loggedIn">Register</a></router-link></li>
                 </ul>
             </div>
             <router-link to="/"><a class="btn btn-ghost normal-case text-4xl">Portfolio</a></router-link>
@@ -31,9 +29,7 @@
                 <router-link v-if="loggedIn" to="/users">
                     <li><a>Users</a></li>
                 </router-link>
-                <router-link to="/register">
-                    <li><a v-if="!loggedIn">Register</a></li>
-                </router-link>
+                <li><router-link to="/register"><a v-if="!loggedIn">Register</a></router-link></li>
             </ul>
         </div>
         <div class="navbar-end">

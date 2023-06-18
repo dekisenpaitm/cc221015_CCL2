@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-screen flex flex-col">
-        <ResponsiveNavbar :loggedIn="loggedIn" class="sticky top-0 z-50" />
-        <div class="flex flex-grow">
+        <ResponsiveNavbar :loggedIn="loggedIn" class="sticky top-0 z-50 w-full" />
+        <div class="flex flex-grow justify-center">
             <RouterView :loggedIn="loggedIn" />
         </div>
         <Footer class="inset-x-0 bottom-0" />
@@ -12,7 +12,6 @@
 import {ref, onMounted} from 'vue'
 import axios from 'axios'
 import Footer from "@/components/Footer.vue";
-import NavBar from "@/components/NavBar.vue";
 import ResponsiveNavbar from "@/components/ResponsiveNavbar.vue";
 
 const loggedIn = ref(null);

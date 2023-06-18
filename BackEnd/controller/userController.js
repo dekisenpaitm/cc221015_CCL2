@@ -1,7 +1,4 @@
 //// Modules
-const path = require("path");
-const fs = require("fs");
-
 const authenticationService = require("../services/authentication");
 
 //// Models

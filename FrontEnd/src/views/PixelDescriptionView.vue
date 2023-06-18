@@ -1,10 +1,12 @@
 <template>
-    <div class="flex w-full flex-grow items-center justify-center mx-16 md:mx-20 lg:mx-28 my-4">
+    <div class="flex w-full flex-grow items-center justify-center mx-4 md:mx-20 lg:mx-64 my-4">
         <div class="w-full flex flex-col">
             <ContentImage :content="pixel"/>
             <Heart :loggedIn="loggedIn"/>
             <DescriptionItem :content="pixel"/>
+            <div class="flex flex-grow w-full divider"></div>
             <CommentBox :contentType="contentType" :loggedIn="loggedIn"/>
+            <div class="flex flex-grow w-full divider"></div>
             <CommentsGrid/>
         </div>
     </div>

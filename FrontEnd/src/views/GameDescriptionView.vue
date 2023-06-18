@@ -1,11 +1,13 @@
 <template>
-    <div class="flex w-full flex-grow items-center justify-center mx-16 md:mx-20 lg:mx-28">
+    <div class="flex w-full flex-grow items-center justify-center mx-4 md:mx-20 lg:mx-64">
         <div class="w-full flex flex-col">
-        <ContentImage :content="game"/>
-        <Heart :loggedIn="loggedIn" />
-        <DescriptionItem :content="game"/>
-        <CommentBox :loggedIn="loggedIn" :contentType="contentType" />
-        <CommentsGrid />
+            <ContentImage :content="game"/>
+            <Heart :loggedIn="loggedIn" />
+            <DescriptionItem :content="game"/>
+            <div class="flex flex-grow w-full divider"></div>
+            <CommentBox :loggedIn="loggedIn" :contentType="contentType" />
+            <div class="flex flex-grow w-full divider"></div>
+            <CommentsGrid />
         </div>
     </div>
 </template>

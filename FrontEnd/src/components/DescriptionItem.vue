@@ -1,13 +1,13 @@
 <template>
-    <div class="flex-grow card bg-base-300 rounded-box place-items-center my-4">
-        <div class="flex flex-wrap hero-content">
-            <div class="my-2">
-            <h1 class="text-3xl">{{ content.name }}:</h1>
+    <div class="flex w-full flex-col">
+        <div class="card bg-base-300 rounded-box p-4 justify-center items-center">
+            <div class="flex flex-col p-4">
+                <h1 class="text-4xl font-bold text-center">{{ content.name }}:</h1>
             </div>
-            <div class="hero my-2">
-            <p>{{ content.description }}</p>
+            <div class="text-justify text-md md:text-xl lg:text-xl">
+                <p>{{ content.description }}</p>
             </div>
-            <div class="my-2">
+            <div class="my-4">
                 <button class="btn btn-lg btn-accent" @click="redirectToExternalLink">
                     Show me more!
                 </button>

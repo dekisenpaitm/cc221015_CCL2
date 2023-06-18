@@ -16,9 +16,7 @@
             <p>UserName: {{ users.name }}</p>
         </div>
     </div>
-
-    <div class="divider"></div>
-
+    <div class="flex flex-grow w-full divider"></div>
 </template>
 
 <script>

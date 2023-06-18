@@ -79,7 +79,6 @@ let deleteUser = (id) => new Promise ((resolve, reject) => {
 
 
 let updateUser = (userData, userId) => new Promise(async(resolve, reject)=>{
-8
     userData.password = await bcrypt.hash(userData.password, 10);
     let sql = "UPDATE users SET" +
         " name = "+ db.escape(userData.name) +

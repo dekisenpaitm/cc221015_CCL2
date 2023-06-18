@@ -1,9 +1,7 @@
 <template>
-
-    <div class="flex justify-center flex-row flex-wrap mx-16 md:mx-20 lg:mx-28">
+    <div class="flex justify-center flex-row flex-wrap md:mx-20 lg:mx-64">
         <ContentGrid :contents="contents" :contentType="contentType"/>
     </div>
-
 </template>
 <script>
 import axios from "axios";
