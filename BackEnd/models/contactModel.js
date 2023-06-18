@@ -27,7 +27,7 @@ let addMessage = (messageData) => new Promise (async (resolve, reject)=> {
 })
 
 let deleteMessage = (id) => new Promise ((resolve, reject) => {
-    let sql = "DELETE FROM content WHERE contentID =" + parseInt(id);
+    let sql = "DELETE FROM contact WHERE contactID =" + parseInt(id);
     db.query(sql, function (err, result, fields){
         if(err) {
             reject(err)

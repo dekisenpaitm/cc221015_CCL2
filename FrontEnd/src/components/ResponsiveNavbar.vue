@@ -34,15 +34,35 @@
         </div>
         <div class="navbar-end">
             <div v-if="loggedIn" class="dropdown dropdown-end">
-                <label v-if="loggedIn" tabindex="0" class="btn btn-ghost btn-circle avatar">
+                <div v-if="messages.length > 0" class="indicator">
+                    <span class="indicator-item indicator-bottom indicator-start badge badge-secondary">New</span>
+                    <label v-if="loggedIn" tabindex="0" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full con">
                         <img src="./icons/profile.png"/>
                     </div>
                 </label>
+                </div>
+                <div v-else>
+                    <label v-if="loggedIn" tabindex="0" class="btn btn-ghost btn-circle avatar">
+                        <div class="w-10 rounded-full con">
+                            <img src="./icons/profile.png"/>
+                        </div>
+                    </label>
+                </div>
                 <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                     <router-link :to="'/users/' + loggedIn.id">
                         <li><a>Profile</a></li>
                     </router-link>
+                    <div v-if="loggedIn.role === 'admin'">
+                    <router-link :to="'/messages/'">
+                        <li>
+                            <div class="indicator">
+                                <span class="indicator-item indicator-top indicator-end badge badge-secondary">{{messages.length}}</span>
+                                <a>Messages</a>
+                            </div>
+                        </li>
+                    </router-link>
+                    </div>
                     <li><a v-on:click="userLogout">Logout</a></li>
                 </ul>
             </div>
@@ -61,9 +81,20 @@ export default {
     props:['loggedIn'],
     data() {
         return {
+            messages:[],
             users: {
             },
         };
+    },
+    mounted() {
+            axios.get('http://localhost:3000/contact', {
+                withCredentials: true,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(response => {
+                this.messages = response.data
+            })
     },
     methods:{
         userLogout(){

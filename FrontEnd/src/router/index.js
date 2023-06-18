@@ -13,6 +13,7 @@ import UIUXView from "@/views/UIUXView.vue";
 import GameDescriptionView from "@/views/GameDescriptionView.vue";
 import PixelDescriptionView from "@/views/PixelDescriptionView.vue";
 import UiuxDescriptionView from "@/views/UiuxDescriptionView.vue";
+import AdminMessagesView from "@/views/AdminMessagesView.vue";
 
 
 
@@ -88,6 +89,11 @@ const router = createRouter({
       path: '/uiuxs/:id',
       name: 'uiuxs',
       component: UiuxDescriptionView
+    },
+    {
+      path: '/messages',
+      name: 'messages',
+      component: AdminMessagesView
     },
   ]
 })

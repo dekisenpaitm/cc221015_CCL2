@@ -21,7 +21,7 @@
             <div class="text-right">
                 <button v-on:click="sendMessage" type="submit" class="btn-wide btn-accent hover:btn-accent text-white text-md md:text-xl lg:text-xl px-4 py-2 rounded-lg">Send Message</button>
             </div>
-        </form>S
+        </form>
     </div>
 </template>
 
@@ -47,11 +47,14 @@ export default {
                 description: this.description,
             }
             axios.post(`http://localhost:3000/contact`, data, {withCredentials: true})
+                .then(response => {
+                    window.location.href="/contact"
+                })
+            this.name="";
+            this.email="";
+            this.titel="";
+            this.description="";
         }
     }
 }
 </script>
-
-<style scoped>
-
-</style>

@@ -1,9 +1,11 @@
 const contactModel = require("../models/contactModel");
 
 function getMessages(req, res, next) {
-    contactModel.getMessages()
-        .then(users => res.send(users))
-        .catch(error => res.sendStatus(500));
+    if(req.user.role === 'admin') {
+        contactModel.getMessages()
+            .then(users => res.send(users))
+            .catch(error => res.sendStatus(500));
+    }
 }
 
 function addMessage(req,res,next){
@@ -15,8 +17,10 @@ function addMessage(req,res,next){
 }
 
 function deleteMessage(req,res,next) {
-   contactModel.deleteMessage(req.body.messageID).then(
-        data => {
+    console.log("i happend")
+    console.log(req.params.id)
+    contactModel.deleteMessage(req.params.id)
+       .then(data => {
             res.send("Message has been deleted!");
         }
     )
