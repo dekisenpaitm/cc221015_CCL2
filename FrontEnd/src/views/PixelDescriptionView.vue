@@ -2,10 +2,10 @@
     <div class="flex w-full flex-grow items-center justify-center mx-28 my-4">
         <div class="w-full flex flex-col">
             <ContentImage :content="pixel"/>
-            <Heart :loggedIn="loggedIn" />
+            <Heart :loggedIn="loggedIn"/>
             <DescriptionItem :content="pixel"/>
-            <CommentBox :loggedIn="loggedIn" :contentType="contentType" />
-            <CommentsGrid />
+            <CommentBox :contentType="contentType" :loggedIn="loggedIn"/>
+            <CommentsGrid/>
         </div>
     </div>
 </template>
@@ -21,12 +21,12 @@ import DescriptionItem from "@/components/DescriptionItem.vue";
 export default {
     name: "PixelDescriptionView",
     components: {DescriptionItem, ContentImage, Heart, CommentBox, CommentsGrid},
-    props:['loggedIn'],
+    props: ['loggedIn'],
     data() {
         return {
-            contentType:"pixels",
-            pixel:{},
-            comments:[]
+            contentType: "pixels",
+            pixel: {},
+            comments: []
         };
     },
     created() {

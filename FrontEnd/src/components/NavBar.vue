@@ -14,6 +14,12 @@
             <router-link to="/uiux">
                 <a class="btn btn-ghost normal-case text-xl">UI/UX</a>
             </router-link>
+            <router-link to="/about">
+                <a class="btn btn-ghost normal-case text-xl">About</a>
+            </router-link>
+            <router-link to="/contact">
+                <a class="btn btn-ghost normal-case text-xl">Contact</a>
+            </router-link>
             <router-link v-if="loggedIn" to="/users">
                 <a class="btn btn-ghost normal-case text-xl">Users</a>
             </router-link>

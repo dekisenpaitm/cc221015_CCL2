@@ -1,10 +1,10 @@
 <template>
-            <img src="../images/banner.png" class="w-full" />
+
 </template>
 
 <script>
 export default {
-    name: "Banner"
+    name: "ContactView"
 }
 </script>
 

@@ -32,11 +32,11 @@
                         </label>
                         <input id="pw-conf" v-model="passwordConfirmation" type="password" placeholder="Re-Enter Password" name="psw-conf" required class="input input-bordered" />
                         <label class="label">
-                            <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+                            <router-link to="/login"><a class="text-accent label-text-alt link link-hover">You have an existing account?</a></router-link>
                         </label>
                     </div>
                     <div class="form-control mt-6">
-                        <button class="btn btn-accent">Login</button>
+                        <button class="btn btn-accent">Register</button>
                     </div>
                     </form>
                 </div>

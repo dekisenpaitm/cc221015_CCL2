@@ -1,7 +1,7 @@
 <template>
     <div className="rating gap-1 my-2 mx-28 justify-end">
         <a v-if="userLike.length > 0">
-            <input v-on:click="dislikeContent" type="radio" name="rating-3" className="mask mask-heart bg-white"/>
+            <input v-on:click="dislikeContent" type="radio" name="rating-3" className="mask mask-heart bg-red-500"/>
         </a>
         <a v-else>
             <input v-on:click="likeContent" type="radio" name="rating-3" className="mask mask-heart bg-gray-700"/>

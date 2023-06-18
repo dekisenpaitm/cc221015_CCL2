@@ -38,7 +38,7 @@
                             <input id="pw-conf" v-model="user.passwordConfirmation" type="password" placeholder="Re-Enter New Password" name="psw-conf" required class="input input-bordered" />
                         </div>
                         <div class="form-control mt-6">
-                            <button class="btn btn-accent">Login</button>
+                            <button class="btn btn-accent">Change</button>
                         </div>
                     </form>
                 </div>

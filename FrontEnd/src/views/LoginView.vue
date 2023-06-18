@@ -39,7 +39,8 @@
                                             type="password"
                                     />
                                     <label class="label">
-                                        <a class="label-text-alt link link-hover" href="#">Forgot password?</a>
+                                       <router-link to="/contact"><a class="text-accent label-text-alt link link-hover">Forgot password?</a></router-link>
+                                        <router-link to="/register"><a class="text-accent label-text-alt link link-hover">No account yet?</a></router-link>
                                     </label>
                                 </div>
                                 <div class="form-control mt-6">
