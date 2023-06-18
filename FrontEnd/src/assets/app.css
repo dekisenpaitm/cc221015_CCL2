@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.html{
+    font-family: monogram;
+}
 .max-width{
     width:100%;
 }
@@ -11,3 +14,8 @@
     width: 100%;
     height: 100px;
 }
+@font-face {
+    font-family: "monogram";
+    src: url("../../public/monogram.ttf");
+}
+

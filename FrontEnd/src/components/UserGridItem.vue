@@ -6,7 +6,7 @@
             </div>
         <div class="flex justify-end mx-4 my-4"><router-link :to="'users/'+ users.userID">
             <div v-if="loggedIn">
-            <button v-if="loggedIn.role === 'admin'" class="btn-wide btn btn-accent normal-case text-xl">View Profile</button>
+            <button v-if="loggedIn.role === 'admin'" class="btn btn-md md:btn-md lg:btn-lg btn-accent shadow-xl">View Profile</button>
             </div>
         </router-link>
         </div>

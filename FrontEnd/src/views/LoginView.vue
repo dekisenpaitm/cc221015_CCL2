@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-grow items-center justify-center">
-        <div class="flex-grow mx-28 my-4">
+        <div class="flex-grow mx-16 md:mx-20 lg:mx-28 my-4">
             <div class="h-full">
             <div class="hero">
                 <div class="hero-content flex-col lg:flex-row-reverse">

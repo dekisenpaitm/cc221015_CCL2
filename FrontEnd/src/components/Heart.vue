@@ -1,12 +1,17 @@
 <template>
-    <div className="rating gap-1 my-2 mx-28 justify-end">
-        <a v-if="userLike.length > 0">
-            <input v-on:click="dislikeContent" type="radio" name="rating-3" className="mask mask-heart bg-red-500"/>
-        </a>
-        <a v-else>
-            <input v-on:click="likeContent" type="radio" name="rating-3" className="mask mask-heart bg-gray-700"/>
-        </a>
-        <div class="font-bold text-xl mx-2">{{ allLikes.length }}</div>
+    <div class="divider">
+        <div className="rating">
+            <div class="hero-content">
+                <a v-if="userLike.length > 0">
+                    <input v-on:click="dislikeContent" type="radio" name="rating-3" className="p-2 md:p-4 lg:p-6 mask mask-heart bg-red-500"/>
+                </a>
+                <a v-else>
+                    <input v-on:click="likeContent" type="radio" name="rating-3" className="p-2 md:p-4 lg:p-6 mask mask-heart bg-gray-700"/>
+                </a>
+                <p class="font-bold text-xl md:text-2xl lg:text-3xl ">{{ allLikes.length }}
+                </p>
+            </div>
+        </div>
     </div>
 </template>
 

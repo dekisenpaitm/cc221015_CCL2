@@ -1,5 +1,5 @@
 <template>
-    <div class="flex w-full flex-grow items-center justify-center mx-28 my-4">
+    <div class="flex w-full flex-grow items-center justify-center mx-16 md:mx-20 lg:mx-28 my-4">
         <div class="w-full flex flex-col">
             <ContentImage :content="uiux"/>
             <Heart :loggedIn="loggedIn" />

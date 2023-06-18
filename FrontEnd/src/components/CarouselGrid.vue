@@ -1,31 +1,31 @@
 <template>
-    <div style="width:70vw; " class="carousel w-full object-fill">
+    <div style="width:70vw; border-radius:3%" class="carousel shadow-xl w-full object-fill">
         <div id="item1" class="carousel-item w-full relative">
-            <h1 class="flex-grow hero-content card bg-base-300 rounded-box place-items-center absolute bottom-4 left-4 bg-base-300 text-3xl">Project:Soul</h1>
+            <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg absolute bottom-4 left-4 shadow-xl" >Project:Soul</button>
             <img src="/games/projectsoul.png" class="w-full">
-            <router-link to="/games"><button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-accent absolute bottom-4 right-4">Find out more!</button></router-link>
+            <router-link to="/games"><button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-accent absolute bottom-4 right-4 shadow-xl">Find out more!</button></router-link>
         </div>
         <div id="item2" class="carousel-item w-full relative">
-            <h1 class="flex-grow hero-content card bg-base-300 rounded-box place-items-center absolute bottom-4 left-4 bg-base-300 text-3xl">Dekis Dungeon Slayer</h1>
+            <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg absolute bottom-4 left-4 shadow-xl">Dekis Dungeon</button>
             <img src="/games/dekisdungeon.png" class="w-full">
-            <router-link to="/games"><button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-accent absolute bottom-4 right-4">Find out more!</button></router-link>
+            <router-link to="/games"><button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-accent absolute bottom-4 right-4 shadow-xl">Find out more!</button></router-link>
         </div>
         <div id="item3" class="carousel-item w-full relative">
-            <h1 class="flex-grow hero-content card bg-base-300 rounded-box place-items-center absolute bottom-4 left-4 bg-base-300 text-3xl">Server-Side-Coding: Project</h1>
+            <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg absolute bottom-4 left-4 shadow-xl">SSC: Online TCG</button>
             <img src="/uiux/ssc.png" class="w-full">
-            <router-link to="/uiux"><button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-accent absolute bottom-4 right-4">Find out more!</button></router-link>
+            <router-link to="/uiux"><button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-accent absolute bottom-4 right-4 shadow-xl">Find out more!</button></router-link>
         </div>
         <div id="item4" class="carousel-item w-full relative">
-            <h1 class="flex-grow hero-content card bg-base-300 rounded-box place-items-center absolute bottom-4 left-4 bg-base-300 text-3xl">Responsive Design: Project</h1>
+            <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg absolute bottom-4 left-4 shadow-xl">RDP: Banking App</button>
             <img src="/uiux/fwoc.png" class="w-full">
-            <router-link to="/uiux"><button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-accent absolute bottom-4 right-4">Find out more!</button></router-link>
+            <router-link to="/uiux"><button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-accent absolute bottom-4 right-4 shadow-xl">Find out more!</button></router-link>
         </div>
     </div>
     <div class="flex justify-center w-full gap-2 my-4">
-        <a href="#item1" class="btn btn-xs">1</a>
-        <a href="#item2" class="btn btn-xs">2</a>
-        <a href="#item3" class="btn btn-xs">3</a>
-        <a href="#item4" class="btn btn-xs">4</a>
+        <a href="#item1" class="btn btn-sm shadow-xl bg-base-300">1</a>
+        <a href="#item2" class="btn btn-sm shadow-xl bg-base-300">2</a>
+        <a href="#item3" class="btn btn-sm shadow-xl bg-base-300">3</a>
+        <a href="#item4" class="btn btn-sm shadow-xl bg-base-300">4</a>
     </div>
 </template>
 

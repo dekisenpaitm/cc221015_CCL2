@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{js,vue}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        monogram: ["monogram"],
+      },
+    },
   },
   plugins: [require("daisyui")],
 

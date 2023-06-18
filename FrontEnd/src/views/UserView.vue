@@ -13,14 +13,10 @@
                         <p>UserName: {{ user.name }}</p>
                         <p>Email: {{ user.email }}</p>
                         <br>
-                        <div class="flex w-full">
-                            <div class="grid h-20 flex-grow card rounded-box place-items-center">
-                                <button class="btn btn-accent btn-wide" v-on:click="deleteUser">Delete</button>
-                            </div>
+                        <div class="flex w-full gap-4">
+                                <button class="btn btn-md md:btn-md lg:btn-lg btn-accent shadow-xl" v-on:click="deleteUser">Delete</button>
                             <div class="divider"></div>
-                            <div class="grid h-20 flex-grow card rounded-box place-items-center">
-                                <button class="btn btn-accent btn-wide" v-on:click="editUser">Edit</button>
-                            </div>
+                                <button class="btn btn-md md:btn-md lg:btn-lg btn-accent shadow-xl" v-on:click="editUser">Edit</button>
                         </div>
                     </div>
                 </div>
@@ -29,7 +25,7 @@
     <div v-else class="hero">
         <div class="hero-content flex-col">
             <div class="flex"><p>You don't have the rights to access this.</p></div>
-            <div class="flex"><router-link to="/"><button class="btn btn-accent">Back to Homepage</button></router-link></div>
+            <div class="flex"><router-link to="/"><button class="btn btn-md md:btn-md lg:btn-lg btn-accent shadow-xl">Back to Homepage</button></router-link></div>
         </div>
     </div>
 </template>
