@@ -10,6 +10,12 @@
                     </div>
                     <form @submit.prevent="loginUser">
                         <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                            <div class="fixed flex items-center justify-center hidden">
+                                <div class="bg-red-400 text-white py-2 px-4 rounded-md shadow-md">
+                                    <span class="mr-2">Wrong Username||Password</span>
+                                    <button id="closeBtn" class="text-white font-bold" v-on:click="closeAlert">Close</button>
+                                </div>
+                            </div>
                             <div class="card-body">
                                 <div class="form-control">
                                     <label class="label">
@@ -72,7 +78,6 @@ export default {
                 uname: this.username,
                 pw: this.password,
             };
-
             axios
                 .post("http://localhost:3000/login", data, {
                     withCredentials: true,
@@ -81,14 +86,27 @@ export default {
                     },
                 })
                 .then((response) => {
-                    window.location.href = "/";
+                        if(response.data === "OK"){
+                        window.location.href = "/";
+                    }else{
+                        this.openAlert()
+                    }
                 })
                 .catch((error) => {
+                    this.openAlert()
                     console.error(error);
                 });
 
             this.username = "";
             this.password = "";
+        },
+        closeAlert: function() {
+            const alertContainer = document.querySelector('.fixed');
+            alertContainer.style.display = 'none';
+        },
+        openAlert: function() {
+            const alertContainer = document.querySelector('.fixed');
+            alertContainer.style.display = 'flex';
         },
     },
 };

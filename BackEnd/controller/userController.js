@@ -4,8 +4,6 @@ const authenticationService = require("../services/authentication");
 //// Models
 const userModel = require("../models/userModel");
 const {authenticateUser} = require("../services/authentication");
-const commentController = require("../controller/commentController");
-const likesController = require("../controller/likesController");
 
 //// Functions
 /**
@@ -78,22 +76,16 @@ function register(req,res,next){
  * @param next Possible-Middleware
  */
 function deleteUser(req,res,next){
-    likesController.deleteAllUserLikes(req.params.id,res,next).then(response =>{
-        commentController.deleteAllComments(req.params.id,res,next).then(response =>{
-            userModel.deleteUser(parseInt(req.params.id)).then(
-                data => {
-                    res.send(200);
-                    if(req.body.role !== 'admin'){
-                        logout()
-                    }
-                }
-            )
-                .catch(error => {
-                    res.send(500);
-                })
-    })
-
-    })
+    console.log(req.params.id)
+    userModel.deleteUser(parseInt(req.params.id)).then(
+        data => {
+            res.sendStatus(200);
+            if(req.body.role !== 'admin'){
+                logout()
+            }
+        }
+        )
+        .catch(error => {})
 
 }
 function getUserData(req, res, next) {
@@ -113,11 +105,11 @@ function editUser(req, res, next) {
                     authenticationService.updateJWT(res, req.body);
                 }
                 res.send(req.user);
-                res.sendStatus(200);
+                res.status(200);
             })
-            .catch(error => res.sendStatus(500))
+            .catch(error => res.status(500))
     } else {
-        res.sendStatus(403);
+        res.status(403);
         next("You don't have the rights to do this");
     }
 }
@@ -135,7 +127,7 @@ function login(req,res,next){
         await authenticationService.authenticateUser(req.body, users, res);
         res.sendStatus(200);
     }).catch((err) => {
-        res.sendStatus(500);
+        res.status(500);
     });
 }
 

@@ -1,6 +1,17 @@
 <template>
     <!--TODO: add a background picture to the first div!-->
     <div v-if="user.userID || user.role === 'admin'" class="flex flex-grow items-center justify-center">
+        <div id="popUp" class="flex fixed w-full h-full backdrop-blur z-50 items-center justify-center hidden">
+            <div class="fixed inset-0 flex items-center justify-center">
+                <div class="bg-base-300 text-white px-6 py-4 rounded-md shadow-md">
+                    <p class="mb-2">You sure you want to delete?</p>
+                    <div class="flex justify-center">
+                        <button class="btn btn-md md:btn-md btn-accent shadow-xl mx-2" v-on:click="handleYes()">Yes</button>
+                        <button class="btn btn-md md:btn-md btn-error shadow-xl mx-2 text-white" v-on:click="handleNo()">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
             <div class="hero">
                 <div class="hero-content flex-col lg:flex-row">
                     <img class="max-w-sm rounded-lg shadow-2xl" src="../images/Avatar.png"/>
@@ -57,17 +68,27 @@ export default {
     },
     methods: {
         deleteUser: function () {
+            const popUp = document.getElementById('popUp');
+            popUp.classList.remove('hidden')
+        },
+        editUser: function () {
+            window.location.href = `/users/edit/${this.$route.params.id}`
+        },
+        handleNo: function (){
+            const popUp = document.getElementById('popUp');
+            popUp.classList.add('hidden')
+        },
+        handleYes: function (){
             axios.delete(`http://localhost:3000/users/${this.$route.params.id}/delete`, {withCredentials: true})
                 .then((response) => {
                     this.user = response.data;
-                    window.location.href = '/';
+                    window.location.href = '/users';
                 })
                 .catch((error) => {
                     console.error(error);
                 });
-        },
-        editUser: function () {
-            window.location.href = `/users/edit/${this.$route.params.id}`
+            const popUp = document.getElementById('popUp');
+            popUp.classList.add('hidden')
         }
     }
 };

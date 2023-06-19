@@ -31,8 +31,9 @@ async function authenticateUser({uname, pw} , users, res){
             sameSite: 'none'
         });
     } else {
+        res.sendStatus(500)
     }
-};
+}
 
 /**
  * This function checks if the authentication is valid based on the JWT Token
