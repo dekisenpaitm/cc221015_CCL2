@@ -32,7 +32,7 @@ export default {
         };
     },
     created() {
-        axios.get(`http://localhost:3000/pixels/${this.$route.params.id}`, {
+        axios.get(`http://localhost:8000/pixels/${this.$route.params.id}`, {
             withCredentials: true,
             headers: {
                 'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ export default {
                 console.error(error);
             });
 
-        axios.get(`http://localhost:3000/${this.$route.params.id}/comments`, {
+        axios.get(`http://localhost:8000/${this.$route.params.id}/comments`, {
             withCredentials: true,
             headers: {
                 'Content-Type': 'application/json'

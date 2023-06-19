@@ -2,35 +2,31 @@
 require('dotenv').config()
 const express = require ('express');
 const bodyParser = require('body-parser');
-const path = require('path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const morgan = require('morgan')
 
 //// App
 const app = express();
-const port = 3000;
+const port = 8000;
 
 //// Routers
-const indexRouter = require('../routes/index');
-const usersRouter = require('../routes/users');
-const registerRouter = require('../routes/register');
-const loginRouter = require('../routes/login');
-const logoutRouter = require('../routes/logout');
-const gamesRouter = require('../routes/games');
-const pixelsRouter = require('../routes/pixels');
-const uiuxRouter = require('../routes/uiuxs');
-const commentsRouter = require('../routes/comments');
-const likesRouter = require('../routes/likes');
-const contactRouter = require('../routes/contact');
-const {authenticateJWT} = require("../services/authentication");
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const registerRouter = require('./routes/register');
+const loginRouter = require('./routes/login');
+const logoutRouter = require('./routes/logout');
+const gamesRouter = require('./routes/games');
+const pixelsRouter = require('./routes/pixels');
+const uiuxRouter = require('./routes/uiuxs');
+const commentsRouter = require('./routes/comments');
+const likesRouter = require('./routes/likes');
+const contactRouter = require('./routes/contact');
+const {authenticateJWT} = require("./services/authentication");
 
 //// App - Configuration
 app.use(cors({origin: true, credentials: true}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/images', express.static(path.join(__dirname, '../assets')));
-//app.use(morgan("common"))
 
 //// App - Routes
 app.use(cookieParser());
@@ -47,10 +43,6 @@ app.use('/uiuxs', uiuxRouter);
 app.use('/comments', commentsRouter);
 app.use('/likes', likesRouter);
 app.use('/contact', contactRouter);
-
-app.use(errorHandler);
-app.all('*', notFound);
-
 
 /**
  * This function renders an error to the User through the error-view

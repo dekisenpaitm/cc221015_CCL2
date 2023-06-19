@@ -19,7 +19,7 @@ export default {
         };
     },
     created() {
-        axios.get(`http://localhost:3000/games`, {
+        axios.get(`http://localhost:8000/games`, {
             withCredentials: true,
             headers: {
                 'Content-Type': 'application/json'

@@ -79,7 +79,7 @@ export default {
                 pw: this.password,
             };
             axios
-                .post("http://localhost:3000/login", data, {
+                .post("http://localhost:8000/login", data, {
                     withCredentials: true,
                     headers: {
                         "Content-Type": "application/json",

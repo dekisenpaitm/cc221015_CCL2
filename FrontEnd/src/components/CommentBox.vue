@@ -36,7 +36,7 @@ export default {
                 titel: this.titel,
                 description: this.description,
             }
-            axios.post(`http://localhost:3000/comments/${this.$route.params.id}`, data, {withCredentials: true})
+            axios.post(`http://localhost:8000/comments/${this.$route.params.id}`, data, {withCredentials: true})
         }
     }
 }

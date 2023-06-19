@@ -46,7 +46,7 @@ export default {
                 titel: this.titel,
                 description: this.description,
             }
-            axios.post(`http://localhost:3000/contact`, data, {withCredentials: true})
+            axios.post(`http://localhost:8000/contact`, data, {withCredentials: true})
                 .then(response => {
                     window.location.href="/contact"
                 })

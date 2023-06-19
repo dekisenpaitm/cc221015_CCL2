@@ -17,7 +17,7 @@ export default {
         };
     },
     created() {
-        axios.get(`http://localhost:3000/uiuxs`, {
+        axios.get(`http://localhost:8000/uiuxs`, {
             withCredentials: true,
             headers: {
                 'Content-Type': 'application/json'

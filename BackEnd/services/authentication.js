@@ -25,7 +25,8 @@ async function authenticateUser({uname, pw} , users, res){
                 role: user.role
             };
         const accessToken = jwt.sign(payload, ACCESS_TOKEN_SECRET, { expiresIn: '1000d' });
-        res.cookie('accessToken', accessToken, {
+        res.cookie('accessToken', accessToken,{
+            maxAge:  365 * 24 * 60 * 60 * 1000,
             httpOnly: true,
             secure: true,
             sameSite: 'none'

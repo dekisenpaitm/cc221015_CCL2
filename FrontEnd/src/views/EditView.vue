@@ -72,7 +72,7 @@ export default {
     },
     mounted() {
         axios
-            .get(`http://localhost:3000/users/${this.$route.params.id}/edit`,{
+            .get(`http://localhost:8000/users/${this.$route.params.id}/edit`,{
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'application/json'
@@ -101,7 +101,7 @@ export default {
             if(this.user.password === this.user.passwordConfirmation) {
                 axios
                     .put(
-                        `http://localhost:3000/users/${this.$route.params.id}/edit`,
+                        `http://localhost:8000/users/${this.$route.params.id}/edit`,
                         this.user, {
                             withCredentials: true,
                             headers: {

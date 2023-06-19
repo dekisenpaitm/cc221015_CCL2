@@ -1,10 +1,12 @@
 const contactModel = require("../models/contactModel");
 
 function getMessages(req, res, next) {
-    if(req.user.role === 'admin') {
-        contactModel.getMessages()
-            .then(users => res.send(users))
-            .catch(error => res.sendStatus(500));
+    if(req.user) {
+        if (req.user.role === 'admin') {
+            contactModel.getMessages()
+                .then(users => res.send(users))
+                .catch(error => res.sendStatus(500));
+        }
     }
 }
 

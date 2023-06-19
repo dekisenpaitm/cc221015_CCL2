@@ -31,7 +31,7 @@ export default {
         };
     },
     created() {
-        axios.get(`http://localhost:3000/games/${this.$route.params.id}`, {
+        axios.get(`http://localhost:8000/games/${this.$route.params.id}`, {
             withCredentials: true,
             headers: {
                 'Content-Type': 'application/json'

@@ -87,7 +87,7 @@ export default {
         };
     },
     mounted() {
-            axios.get('http://localhost:3000/contact', {
+            axios.get('http://localhost:8000/contact', {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'application/json'
@@ -98,7 +98,7 @@ export default {
     },
     methods:{
         userLogout(){
-            axios.get('http://localhost:3000/logout',{
+            axios.get('http://localhost:8000/logout',{
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'application/json'

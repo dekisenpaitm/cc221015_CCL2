@@ -61,7 +61,7 @@ export default {
     },
     methods: {
         createUser() {
-            axios.post('http://localhost:3000/register/add', {
+            axios.post('http://localhost:8000/register/add', {
                 name: this.name,
                 email: this.email,
                 password: this.password,

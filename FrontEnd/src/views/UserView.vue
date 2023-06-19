@@ -52,7 +52,7 @@ export default {
         };
     },
     created() {
-        axios.get(`http://localhost:3000/users/${this.$route.params.id}`, {
+        axios.get(`http://localhost:8000/users/${this.$route.params.id}`, {
             withCredentials: true,
             headers: {
                 'Content-Type': 'application/json'
@@ -79,7 +79,7 @@ export default {
             popUp.classList.add('hidden')
         },
         handleYes: function (){
-            axios.delete(`http://localhost:3000/users/${this.$route.params.id}/delete`, {withCredentials: true})
+            axios.delete(`http://localhost:8000/users/${this.$route.params.id}/delete`, {withCredentials: true})
                 .then((response) => {
                     this.user = response.data;
                     window.location.href = '/users';

@@ -33,7 +33,7 @@ export default {
     methods: {
         likeContent: function () {
             axios
-                .post(`http://localhost:3000/likes/${this.$route.params.id}`, {}, {withCredentials: true})
+                .post(`http://localhost:8000/likes/${this.$route.params.id}`, {}, {withCredentials: true})
                 .then(() => {
                     this.getUserLikes();
                     this.getAllLikes();
@@ -42,7 +42,7 @@ export default {
 
         dislikeContent: function () {
             axios
-                .delete(`http://localhost:3000/likes/${this.$route.params.id}/delete`, {withCredentials: true})
+                .delete(`http://localhost:8000/likes/${this.$route.params.id}/delete`, {withCredentials: true})
                 .then(() => {
                     this.getUserLikes();
                     this.getAllLikes();
@@ -51,7 +51,7 @@ export default {
 
         getUserLikes: function () {
             axios
-                .get(`http://localhost:3000/likes/${this.$route.params.id}`, {withCredentials: true})
+                .get(`http://localhost:8000/likes/${this.$route.params.id}`, {withCredentials: true})
                 .then((response) => {
                     this.userLike = response.data;
                     console.log(this.userLike);
@@ -59,7 +59,7 @@ export default {
         },
         getAllLikes: function () {
             axios
-                .get(`http://localhost:3000/likes/${this.$route.params.id}/all`, {withCredentials: true})
+                .get(`http://localhost:8000/likes/${this.$route.params.id}/all`, {withCredentials: true})
                 .then((response) => {
                     this.allLikes = response.data;
                 });

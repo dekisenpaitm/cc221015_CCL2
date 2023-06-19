@@ -17,7 +17,7 @@ export default {
         };
     },
     created() {
-        axios.get(`http://localhost:3000/pixels`, {
+        axios.get(`http://localhost:8000/pixels`, {
             withCredentials: true,
             headers: {
                 'Content-Type': 'application/json'

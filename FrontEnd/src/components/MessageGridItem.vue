@@ -29,7 +29,7 @@ export default {
     methods: {
       deleteMessage: function(){
           console.log(this.message.contactID)
-          axios.delete(`http://localhost:3000/contact/${this.message.contactID}`, {
+          axios.delete(`http://localhost:8000/contact/${this.message.contactID}`, {
               withCredentials: true,
               headers: {
                   'Content-Type': 'application/json'

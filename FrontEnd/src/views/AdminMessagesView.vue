@@ -18,7 +18,7 @@ export default {
         };
     },
     created() {
-        axios.get(`http://localhost:3000/contact`, {
+        axios.get(`http://localhost:8000/contact`, {
             withCredentials: true,
             headers: {
                 'Content-Type': 'application/json'

@@ -17,7 +17,7 @@ export default {
     },
     components: { CommentsGridItem },
     created(){
-        axios.get(`http://localhost:3000/comments/${this.$route.params.id}`, {
+        axios.get(`http://localhost:8000/comments/${this.$route.params.id}`, {
             withCredentials: true,
             headers: {
                 'Content-Type': 'application/json'
