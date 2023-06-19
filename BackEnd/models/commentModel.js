@@ -31,8 +31,21 @@ let postComment = (userID, userName, content) => new Promise (async (resolve, re
     })
 })
 
+let deleteAllComments = (userID) => new Promise ((resolve,reject)=>{
+    let sql = "DELETE FROM comment"+
+        " WHERE comment.userID= " + parseInt(userID);
+    db.query(sql, function (err, userLike, fields) {
+        if (err) {
+            reject(err)
+        } else {
+            resolve(userLike)
+        }
+    })
+})
+
 //// Exports
 module.exports = {
     getComments,
-    postComment
+    postComment,
+    deleteAllComments
 };

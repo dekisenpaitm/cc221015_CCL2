@@ -4,6 +4,8 @@ const authenticationService = require("../services/authentication");
 //// Models
 const userModel = require("../models/userModel");
 const {authenticateUser} = require("../services/authentication");
+const commentController = require("../controller/commentController");
+const likesController = require("../controller/likesController");
 
 //// Functions
 /**
@@ -76,23 +78,21 @@ function register(req,res,next){
  * @param next Possible-Middleware
  */
 function deleteUser(req,res,next){
-    userModel.deleteUser(parseInt(req.params.id)).then(
-        data => {
-            res.send(
-                {
-                    error: "user deleted",
-                    status: 200,
+    likesController.deleteAllUserLikes(req.params.id,res,next).then(response =>{
+        commentController.deleteAllComments(req.params.id,res,next).then(response =>{
+            userModel.deleteUser(parseInt(req.params.id)).then(
+                data => {
+                    res.send(200);
+                    if(req.body.role !== 'admin'){
+                        logout()
+                    }
                 }
-            );
-        }
-    )
-    .catch(error => {
-        res.send(
-            {
-                error: error,
-                status: 500,
-            }
-        );
+            )
+                .catch(error => {
+                    res.send(500);
+                })
+    })
+
     })
 
 }

@@ -28,7 +28,16 @@ function postComment(req,res,next){
         .catch(error => res.sendStatus(500))
 }
 
+function deleteAllComments(req,res,next){
+    commentModel.deleteAllComments(req.params.id)
+        .then(comment => {
+            res.send(comment);
+        })
+        .catch(error => res.sendStatus(500))
+}
+
 module.exports = {
     getComments,
-    postComment
+    postComment,
+    deleteAllComments
 }

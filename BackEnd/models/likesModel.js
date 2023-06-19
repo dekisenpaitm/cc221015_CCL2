@@ -57,10 +57,23 @@ let deleteLike = (userID, contentID) => new Promise ((resolve,reject)=>{
     })
 })
 
+let deleteAllLikes = (userID) => new Promise ((resolve,reject)=>{
+    let sql = "DELETE FROM userLikes"+
+        " WHERE userLikes.userID= " + parseInt(userID);
+    db.query(sql, function (err, userLike, fields) {
+        if (err) {
+            reject(err)
+        } else {
+            resolve(userLike)
+        }
+    })
+})
+
 //// Exports
 module.exports = {
     getLikes,
     getLike,
     postLike,
-    deleteLike
+    deleteLike,
+    deleteAllLikes
 };

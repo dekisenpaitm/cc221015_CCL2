@@ -42,9 +42,18 @@ function deleteLike(req,res,next){
         .catch(error => res.sendStatus(500))
 }
 
+function deleteAllUserLikes(req,res,next){
+    likesModel.deleteAllLikes(req.params.id)
+        .then(deleteLike => {
+            res.sendStatus(200);
+        })
+        .catch(error => res.sendStatus(500))
+}
+
 module.exports = {
     getLikes,
     getLike,
     addLike,
-    deleteLike
+    deleteLike,
+    deleteAllUserLikes
 }
