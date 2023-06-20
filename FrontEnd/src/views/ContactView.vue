@@ -1,8 +1,8 @@
 <template>
-    <div class="flex flex-wrap justify-center items-center mx-4 md:mx-20 lg:mx-64">
-        <TextBoxItem :title="title" :body="body"/>
-        <div class="divider w-full"></div>
-        <ContactBox />
+    <div class="flex flex-wrap mx-4 md:mx-20 lg:mx-64">
+        <TextBoxItem class="flex-1 justify-center" :title="title" :body="body"/>
+        <div class="divider flex-0  w-full"></div>
+        <ContactBox @sendMessage="sendMessage" class="flex-1 w-full items-center justify-center" />
     </div>
 </template>
 
@@ -31,6 +31,11 @@ export default {
             ]
         }
     },
+    methods: {
+        sendMessage: function handleContent(data) {
+            this.$emit('sendMessage', data);
+        },
+    }
 }
 </script>
 

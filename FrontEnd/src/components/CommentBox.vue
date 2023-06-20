@@ -11,7 +11,7 @@
                 <textarea v-model="description" id="description" name="description" placeholder="Enter the description" class="w-full bg-gray-700 px-3 py-2 rounded-lg focus:outline-none focus:border-indigo-500"></textarea>
             </div>
             <div class="text-right">
-                <button v-on:click="postComment" type="submit" class="btn-accent hover:btn-accent text-white px-4 py-2 rounded-lg">Post</button>
+                <button v-on:click="postComment" type="button" class="btn-accent hover:btn-accent text-white px-4 py-2 rounded-lg">Post</button>
             </div>
         </form>
     </div>
@@ -27,6 +27,8 @@ export default {
         return{
             titel:"",
             description: "",
+            send:"",
+            message:""
         }
     },
     methods: {
@@ -36,8 +38,22 @@ export default {
                 titel: this.titel,
                 description: this.description,
             }
-            axios.post(`http://localhost:8000/comments/${this.$route.params.id}`, data, {withCredentials: true})
-        }
+            if(this.titel !== "" && this.description !== "") {
+                axios
+                    .post(`http://localhost:8000/comments/${this.$route.params.id}`, data, {withCredentials: true})
+                    .then(response => {
+                            this.send = true;
+                            this.$emit('postComment', {send: true, message: 'Thank you! Your comment has been posted! :D'});
+                        }
+                    ).catch(response => {
+                    this.send = false;
+                    this.$emit('postComment', {send: false, message: 'You have to be logged in to post comments! :('})
+
+                })
+            } else {
+                this.$emit('postComment', {send: false, message: 'Please make sure to fill all fields! :('})
+            }
+        },
     }
 }
 </script>

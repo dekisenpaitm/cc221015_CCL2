@@ -15,12 +15,11 @@ function addMessage(req,res,next){
         .then( user => {
                 res.sendStatus(200);
         })
-        .catch(error => res.sendStatus(500))
+        .catch(error =>
+            res.sendStatus(500))
 }
 
 function deleteMessage(req,res,next) {
-    console.log("i happend")
-    console.log(req.params.id)
     contactModel.deleteMessage(req.params.id)
        .then(data => {
             res.send("Message has been deleted!");

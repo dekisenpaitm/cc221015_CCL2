@@ -76,7 +76,6 @@ function register(req,res,next){
  * @param next Possible-Middleware
  */
 function deleteUser(req,res,next){
-    console.log(req.params.id)
     userModel.deleteUser(parseInt(req.params.id)).then(
         data => {
             res.sendStatus(200);
@@ -127,7 +126,7 @@ function login(req,res,next){
         await authenticationService.authenticateUser(req.body, users, res);
         res.sendStatus(200);
     }).catch((err) => {
-        res.sendStatus(500);
+        res.status(500);
     });
 }
 

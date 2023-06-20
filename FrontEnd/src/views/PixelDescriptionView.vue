@@ -2,10 +2,10 @@
     <div class="flex w-full flex-grow items-center justify-center mx-4 md:mx-20 lg:mx-64 my-4">
         <div class="w-full flex flex-col">
             <ContentImage :content="pixel"/>
-            <Heart :loggedIn="loggedIn"/>
+            <Heart @likeContent="handleContent" :loggedIn="loggedIn"/>
             <DescriptionItem :content="pixel"/>
             <div class="flex flex-grow w-full divider"></div>
-            <CommentBox :contentType="contentType" :loggedIn="loggedIn"/>
+            <CommentBox :contentType="contentType" :loggedIn="loggedIn" @postComment="handleContent"/>
             <div class="flex flex-grow w-full divider"></div>
             <CommentsGrid/>
         </div>
@@ -40,7 +40,6 @@ export default {
         })
             .then((response) => {
                 this.pixel = response.data;
-                console.log(this.pixel)
             })
             .catch((error) => {
                 console.error(error);
@@ -60,8 +59,12 @@ export default {
                 console.error(error);
             });
     },
-
-};
+    methods: {
+        handleContent: function handleContent(data) {
+            this.$emit('likeContent', data);
+        },
+    }
+}
 </script>
 
 <style scoped>

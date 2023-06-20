@@ -43,7 +43,6 @@ async function authenticateUser({uname, pw} , users, res){
  * @param next Possible-Middleware
  */
 function authenticateJWT(req, res, next){
-    console.table(req.cookies);
     const token = req.cookies['accessToken'];
     if (token) {
         jwt.verify(token, ACCESS_TOKEN_SECRET, (err, userToken) => {

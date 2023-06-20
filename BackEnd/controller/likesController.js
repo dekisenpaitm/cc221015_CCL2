@@ -13,6 +13,7 @@ function getLikes(req, res, next) {
 
 
 function getLike(req, res, next) {
+    if(req.user){
     likesModel.getLike(parseInt(req.params.id), req.user.id)
         .then(userLike => {
             res.send(userLike);
@@ -21,10 +22,13 @@ function getLike(req, res, next) {
             res.status(404)
             next(err);
         })
+    } else {
+        res.sendStatus(500);
+    }
 }
 
 function addLike(req,res,next) {
-    console.log("i happened")
+    if(req.user){
     likesModel.postLike(req.user.id, req.params.id)
         .then(likedPost => {
             res.send(likedPost);
@@ -32,6 +36,9 @@ function addLike(req,res,next) {
         .catch(error => {
             res.sendStatus(500)
         })
+    } else {
+        res.sendStatus(500)
+    }
 }
 
 function deleteLike(req,res,next){

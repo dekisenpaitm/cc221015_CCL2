@@ -1,5 +1,5 @@
 <template>
-    <div class="card lg:card-side bg-base-300 shadow-xl w-full mx-28 my-4">
+    <div class="card lg:card-side bg-base-300 shadow-xl w-full my-4">
         <figure class="w-full"><img :src="content.path" alt="Album" class="w-full h-auto max-h-120 object-fill"/></figure>
         <div class="card-body">
             <h2 class="card-title">{{content.title}}</h2>

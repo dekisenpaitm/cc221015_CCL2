@@ -1,7 +1,7 @@
 <template>
     <div>
-      <div class="flex flex-wrap justify-center items-center my-4 mx-4 md:mx-20 lg:mx-64">
-        <CarouselGrid/>
+      <div class="flex flex-wrap justify-center items-center my-4 mx-4 md:mx-20 lg:mx-96">
+        <CarouselGrid />
           <div class="divider w-full"></div>
           <TextBoxItem :body="body" :title="title" />
           <div class="divider w-full"></div>

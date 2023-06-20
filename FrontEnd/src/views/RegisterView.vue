@@ -1,8 +1,4 @@
 <template>
-    <div class="fixed hidden w-full top-0 z-50">
-        <a v-if="send === true"><PopUpItem :message="message" /></a>
-        <a v-else><AlertItem :message="message" /></a>
-    </div>
     <div v-if="!loggedIn" class="hero">
         <div class="hero-content flex-col lg:flex-row-reverse">
             <div class="text-center lg:text-left">
@@ -84,7 +80,7 @@ export default {
                     }).then(response => {
                         if (response.data === 'OK') {
                             this.send = true;
-                            this.openAlert("Thank you for registering! You can now like && comment my content! You'll be redirected in a second :)")
+                            this.$emit('createUser', {send: true, message: "Thank you && Welcome! You'll be redirected in a second! :D"})
                             this.redirect()
                             this.name = "";
                             this.email = "";
@@ -94,26 +90,16 @@ export default {
                     })
                         .catch(error => {
                             this.send = false;
-                            this.openAlert("If you see this alert, something went very wrong... contact me pls >.<")
+                            this.$emit('createUser', {send: false, message: 'Either the Username || Email is already in use! :('});
                         });
                 } else {
-                    this.openAlert("Please make sure to fill out all fields! :(")
+                    this.$emit('createUser', {send: false, message: 'Make sure to fill out the full form! :('});
                 }
             } else {
-                this.openAlert("Your Password && PasswordConfirmation are not the same! :(")
+                this.$emit('createUser', {send: false, message: 'Oooopsies, your passwords are not the same! :('});
                 this.password="";
                 this.passwordConfirmation="";
             }
-        },
-        closeAlert: function() {
-            const alertContainer = document.querySelector('.fixed');
-            alertContainer.classList.add('hidden')
-        },
-        openAlert: function(message) {
-            this.message = message
-            const alertContainer = document.querySelector('.fixed');
-            alertContainer.classList.remove('hidden');
-            setTimeout(this.closeAlert,3000)
         },
         redirect: function(){
             setTimeout(function(){

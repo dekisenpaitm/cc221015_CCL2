@@ -5,6 +5,18 @@
 .html{
     font-family: monogram;
 }
+#svgElement {
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    display: block;
+    background-color: #1d222b;
+    background-image: linear-gradient(to bottom, rgba(29, 34, 43, 0.86), #1d222b);
+    background-size: contain;
+    z-index: -1;
+}
+
 .max-width{
     width:100%;
 }

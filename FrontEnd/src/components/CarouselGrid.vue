@@ -1,5 +1,5 @@
 <template>
-    <div style="width:70vw; border-radius:3%" class="carousel shadow-xl w-full object-fill">
+    <div style="width:70vw; border-radius:3%" class="carousel shadow-xl object-fill">
         <div id="item1" class="carousel-item w-full relative">
             <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg absolute bottom-4 left-4 shadow-xl" >Project:Soul</button>
             <img src="/games/projectsoul.png" class="w-full">
@@ -22,10 +22,10 @@
         </div>
     </div>
     <div class="flex justify-center w-full gap-2 my-4">
-        <a href="#item1" class="btn btn-sm shadow-xl bg-base-300">1</a>
-        <a href="#item2" class="btn btn-sm shadow-xl bg-base-300">2</a>
-        <a href="#item3" class="btn btn-sm shadow-xl bg-base-300">3</a>
-        <a href="#item4" class="btn btn-sm shadow-xl bg-base-300">4</a>
+        <a href="#item1" type="button" class="btn btn-sm shadow-xl bg-base-300">1</a>
+        <a href="#item2" type="button" class="btn btn-sm shadow-xl bg-base-300">2</a>
+        <a href="#item3" type="button" class="btn btn-sm shadow-xl bg-base-300">3</a>
+        <a href="#item4" type="button" class="btn btn-sm shadow-xl bg-base-300">4</a>
     </div>
 </template>
 

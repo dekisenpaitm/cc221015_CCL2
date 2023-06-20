@@ -10,8 +10,7 @@
                     <form id="edit-form"
                           :action="`/users/${$route.params.id}/edit`"
                           method="PUT"
-                          class="text-outline transparent"
-                          @submit.prevent="editUser">
+                          class="text-outline transparent">
 
                         <div class="form-control">
                             <label class="label">
@@ -38,7 +37,7 @@
                             <input id="pw-conf" v-model="user.passwordConfirmation" type="password" placeholder="Re-Enter New Password" name="psw-conf" required class="input input-bordered" />
                         </div>
                         <div class="form-control mt-6">
-                            <button class="btn btn-accent">Change</button>
+                            <button type="button" @click="editUser" class="btn btn-accent">Change</button>
                         </div>
                     </form>
                 </div>
@@ -79,26 +78,19 @@ export default {
                 }
             })
             .then((response) => {
-                console.log(response.data.userID, parseInt(this.$route.params.id))
                 if((response.data.userID === parseInt(this.$route.params.id)) || response.data.role === 'admin') {
                     response.data.password = "",
                         this.user = response.data
                     this.siteID = parseInt(this.$route.params.id);
-                    console.log(typeof (this.siteID))
-                    console.log(typeof (this.user.userID))
-                    console.log(this.siteID, this.user.userID)
-                    console.log(this.loggedIn)
                 }else{
-                    console.log("wrongUser")
                 }
             })
             .catch((error) => {
-                console.log("Failed to fetch user data:", error);
             });
     },
     methods: {
         editUser() {
-            if(this.user.password === this.user.passwordConfirmation) {
+            if(this.user.password === this.user.passwordConfirmation && this.user.password !== "" && this.user.passwordConfirmation !== "") {
                 axios
                     .put(
                         `http://localhost:8000/users/${this.$route.params.id}/edit`,
@@ -110,13 +102,20 @@ export default {
                         },
                     )
                     .then((response) => {
-                        window.location.href = `/users/${this.$route.params.id}`
+                        this.$emit('editUser', {send: true, message: 'Thank you! Your credentials have been changed! :D'})
+                        this.redirect()
                     })
                     .catch((error) => {
-                        console.log("Failed to update user:", error);
+                        this.$emit('editUser', {send: false, message: 'Please make sure to fill all fields! :('})
                     });
+            } else {
+                this.$emit('editUser', {send: false, message: "Ooooopsies! There's an error in your passwords! :("})
             }
         },
+        redirect: function(){
+            setTimeout(function(){
+                window.location.href='/';},2000)
+        }
     },
 };
 </script>

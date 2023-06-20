@@ -1,8 +1,4 @@
 <template>
-    <div class="fixed hidden w-full top-0 z-50">
-        <a v-if="send === true"><PopUpItem :message="message" /></a>
-        <a v-else><AlertItem :message="message" /></a>
-    </div>
     <div class="flex flex-grow items-center justify-center">
         <div class="flex-grow md:mx-20 lg:mx-64 my-4">
             <div class="h-full">
@@ -89,30 +85,19 @@ export default {
                     },
                 })
                 .then((response) => {
-                    console.log(response)
                         if(response.data === "OK") {
                             this.send = true;
-                            this.openAlert("Welcome back && Enjoy your time! You'll be redirected in a second! :)")
+                            this.$emit('loginUser', {send: true, message: "Welcome back! :D You'll be redirected in a second <3"});
                             this.redirect()
                         }
                 })
                 .catch((error) => {
-                    this.openAlert("Either your Username or your Password is wrong! :(")
+                    this.$emit('loginUser', {send: false, message: "Either your Username or your Password is wrong! :("});
                     console.error(error);
                 });
 
             this.username = "";
             this.password = "";
-        },
-        closeAlert: function() {
-            const alertContainer = document.querySelector('.fixed');
-            alertContainer.classList.add('hidden')
-        },
-        openAlert: function(message) {
-            this.message = message
-            const alertContainer = document.querySelector('.fixed');
-            alertContainer.classList.remove('hidden');
-            setTimeout(this.closeAlert,2000)
         },
         redirect: function(){
             setTimeout(function(){
