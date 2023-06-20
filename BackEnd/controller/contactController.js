@@ -5,7 +5,7 @@ function getMessages(req, res, next) {
         if (req.user.role === 'admin') {
             contactModel.getMessages()
                 .then(users => res.send(users))
-                .catch(error => res.sendStatus(500));
+                .catch(error => res.status(500));
         }
     }
 }
@@ -13,9 +13,9 @@ function getMessages(req, res, next) {
 function addMessage(req,res,next){
     contactModel.addMessage(req.body)
         .then( user => {
-                res.send("Message has been sent!");
+                res.sendStatus(200);
         })
-        .catch(error => res.send("Message couldn't be sent!"))
+        .catch(error => res.sendStatus(500))
 }
 
 function deleteMessage(req,res,next) {

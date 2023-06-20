@@ -1,4 +1,8 @@
 <template>
+    <div class="fixed hidden w-full top-0 z-50">
+        <a v-if="send === true"><PopUpItem :message="message" /></a>
+        <a v-else><AlertItem :message="message" /></a>
+    </div>
     <div v-if="!loggedIn" class="hero">
         <div class="hero-content flex-col lg:flex-row-reverse">
             <div class="text-center lg:text-left">
@@ -7,7 +11,7 @@
             </div>
             <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <div class="card-body">
-                    <form class="text-outline transparent" @submit.prevent="createUser">
+                    <form class="text-outline transparent">
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">Username</span>
@@ -36,7 +40,7 @@
                         </label>
                     </div>
                     <div class="form-control mt-6">
-                        <button class="btn btn-accent">Register</button>
+                        <button @click="createUser" type="button" class="btn btn-accent">Register</button>
                     </div>
                     </form>
                 </div>
@@ -48,8 +52,11 @@
 
 <script>
 import axios from "axios";
+import PopUpItem from "@/components/PopUpItem.vue";
+import AlertItem from "@/components/AlertItem.vue";
 
 export default {
+    components: {AlertItem, PopUpItem},
     props: ['loggedIn'],
     data() {
         return {
@@ -57,23 +64,60 @@ export default {
             email: '',
             password: '',
             passwordConfirmation: '',
+            send:"",
+            message:"",
         };
     },
     methods: {
         createUser() {
-            axios.post('http://localhost:8000/register/add', {
-                name: this.name,
-                email: this.email,
-                password: this.password,
-            }, {
-                withCredentials: true,
-                headers: {
-                    'Content-Type': 'application/json'
-                }})
-                .catch(error => {
-                    console.error(error);
-                });
-            window.location.href = '/login'
+            if(this.password === this.passwordConfirmation) {
+                if (this.name !== "" && this.email !== "" && this.password !== "" && this.passwordConfirmation !== "") {
+                    axios.post('http://localhost:8000/register/add', {
+                        name: this.name,
+                        email: this.email,
+                        password: this.password,
+                    }, {
+                        withCredentials: true,
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }).then(response => {
+                        if (response.data === 'OK') {
+                            this.send = true;
+                            this.openAlert("Thank you for registering! You can now like && comment my content! You'll be redirected in a second :)")
+                            this.redirect()
+                            this.name = "";
+                            this.email = "";
+                            this.password = "";
+                            this.passwordConfirmation = ""
+                        }
+                    })
+                        .catch(error => {
+                            this.send = false;
+                            this.openAlert("If you see this alert, something went very wrong... contact me pls >.<")
+                        });
+                } else {
+                    this.openAlert("Please make sure to fill out all fields! :(")
+                }
+            } else {
+                this.openAlert("Your Password && PasswordConfirmation are not the same! :(")
+                this.password="";
+                this.passwordConfirmation="";
+            }
+        },
+        closeAlert: function() {
+            const alertContainer = document.querySelector('.fixed');
+            alertContainer.classList.add('hidden')
+        },
+        openAlert: function(message) {
+            this.message = message
+            const alertContainer = document.querySelector('.fixed');
+            alertContainer.classList.remove('hidden');
+            setTimeout(this.closeAlert,3000)
+        },
+        redirect: function(){
+            setTimeout(function(){
+                window.location.href='/';},5000)
         }
     }
 };

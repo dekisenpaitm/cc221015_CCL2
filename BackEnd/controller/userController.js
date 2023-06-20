@@ -59,7 +59,7 @@ function register(req,res,next){
     userModel.addUser(req.body)
     .then( user => {
         authenticateUser({uname: req.body.name, pw: req.body.originalPassword}, [user], res).then(user => {
-            res.send(req.user);
+            res.sendStatus(200);
         });
     })
         .catch(error => res.sendStatus(500))
@@ -127,7 +127,7 @@ function login(req,res,next){
         await authenticationService.authenticateUser(req.body, users, res);
         res.sendStatus(200);
     }).catch((err) => {
-        res.status(500);
+        res.sendStatus(500);
     });
 }
 
