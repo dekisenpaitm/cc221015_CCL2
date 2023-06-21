@@ -14,7 +14,7 @@ import GameDescriptionView from "@/views/GameDescriptionView.vue";
 import PixelDescriptionView from "@/views/PixelDescriptionView.vue";
 import UiuxDescriptionView from "@/views/UiuxDescriptionView.vue";
 import AdminMessagesView from "@/views/AdminMessagesView.vue";
-import NotFound from "@/views/NotFound.vue";
+import NotFoundView from "@/views/NotFound.vue";
 
 
 const router = createRouter({
@@ -98,7 +98,7 @@ const router = createRouter({
     {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
-      component: NotFound
+      component: NotFoundView
     },
 
   ]

@@ -33,7 +33,7 @@
                 </div>
             </div>
     </div>
-    <div class="hero">
+    <div v-else class="hero">
         <div class="hero-content flex-col">
             <div class="flex text-4xl font-bold text-center"><p>You got lost? No problem got the right link for you ;)</p></div>
             <br>
