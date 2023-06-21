@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center flex-row flex-wrap md:mx-20 lg:mx-64">
+    <div class="flex justify-center flex-row flex-wrap md:mx-56 xl:mx-64">
         <ContentGrid :contents="contents" :contentType="contentType"/>
     </div>
 </template>

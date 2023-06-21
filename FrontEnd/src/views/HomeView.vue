@@ -1,6 +1,6 @@
 <template>
     <div>
-      <div class="flex flex-wrap justify-center items-center my-4 mx-4 md:mx-20 lg:mx-96">
+      <div class="flex flex-col justify-center items-center my-4 mx-4 md:mx-20 lg:mx-64">
         <CarouselGrid />
           <div class="divider w-full"></div>
           <TextBoxItem :body="body" :title="title" />
@@ -65,7 +65,7 @@ export default {
                 }
                 ,
                 {
-                    p:  "If you have any questions or concerns, please don't hesitate to <router-link to=\"/contact\"><a class=\"font-bold text-accent\">contact me</a></router-link>. Thank you for being a part of my community!"
+                    p:  "If you have any questions or concerns, please don't hesitate to contact me. Thank you for being a part of my community!"
                 }
             ],
         }

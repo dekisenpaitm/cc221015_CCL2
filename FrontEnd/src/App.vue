@@ -5,8 +5,8 @@
     </div>
     <div class="min-h-screen flex flex-col">
         <ResponsiveNavbar :loggedIn="loggedIn" class="sticky top-0 z-40 w-full" />
-        <div class="flex flex-grow justify-center">
-            <RouterView class="bg-none" :loggedIn="loggedIn"
+        <div class="flex flex-grow">
+                <RouterView :loggedIn="loggedIn"
                         @likeContent="updateData"
                         @createUser="updateData"
                         @loginUser="updateData"

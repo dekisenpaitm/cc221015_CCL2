@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.html{
-    font-family: monogram;
-}
+
 #svgElement {
     position: fixed;
     top: 0;
@@ -13,7 +11,7 @@
     display: block;
     background-color: #1d222b;
     background-image: linear-gradient(to bottom, rgba(29, 34, 43, 0.86), #1d222b);
-    background-size: contain;
+    background-size:contain;
     z-index: -1;
 }
 

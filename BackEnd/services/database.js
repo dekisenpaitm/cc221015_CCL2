@@ -1,7 +1,6 @@
 //// Modules
 const mysql = require('mysql');
 
-//TODO: add to .env
 const config = mysql.createConnection({
     host: "213.47.34.218",
     port: 42069,
