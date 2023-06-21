@@ -14,7 +14,7 @@
         </div>
             <div class="hero">
                 <div class="hero-content flex-col lg:flex-row">
-                    <img class="max-w-sm rounded-lg shadow-2xl" src="../images/Avatar.png"/>
+                    <img class="max-w-sm rounded-lg shadow-2xl" src="../images/Avatar.png" alt="default avatar image"/>
                     <div>
                         <h1 class="text-5xl font-bold">Welcome to your profile {{ user.name }}!</h1>
                         <p class="py-6">Here you can either edit or delete your profile! Be careful, you can't revert

@@ -7,7 +7,7 @@
         </div>
             <button v-on:click="deleteMessage" class="btn btn-md md:btn-md lg:btn-lg btn-accent shadow-xl">Delete Message</button>
         <div class="collapse-content text-justify text-md md:text-xl lg:text-xl">
-            <img v-bind:key="message.contactID"/>
+            <a v-bind:key="message.contactID"/><a/>
             <p>MessageID: {{ message.contactID }}</p>
             <p>UserName: {{ message.name }}</p>
             <p>E-Mail: {{ message.email }}</p>

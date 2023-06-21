@@ -14,16 +14,6 @@
     background-size:contain;
     z-index: -1;
 }
-
-.max-width{
-    width:100%;
-}
-.top {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 100px;
-}
 @font-face {
     font-family: "monogram";
     src: url("../../public/monogram.ttf");

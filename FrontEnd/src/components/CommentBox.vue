@@ -41,13 +41,16 @@ export default {
                 titel: this.titel, // Title of the comment
                 description: this.description, // Description of the comment
             };
-
             if (this.titel !== "" && this.description !== "") {
                 axios
                     .post(`http://localhost:8000/comments/${this.$route.params.id}`, data, { withCredentials: true })
                     .then(response => {
                         this.send = true; // Set the flag to indicate a successful comment post
                         this.$emit('postComment', { send: true, message: 'Thank you! Your comment has been posted! :D' }); // Emit an event to notify the parent component
+                        this.titel=""
+                        this.description=""
+                        this.refresh()
+
                     })
                     .catch(response => {
                         this.send = false; // Set the flag to indicate a failed comment post
@@ -57,11 +60,12 @@ export default {
                 this.$emit('postComment', { send: false, message: 'Please make sure to fill all fields! :(' }); // Emit an event to notify the parent component about empty fields
             }
         },
+        refresh: function () {
+            setTimeout(function () {
+                window.location.reload();
+            }, 2000);
+        }
+
     }
 }
 </script>
-
-
-<style scoped>
-
-</style>

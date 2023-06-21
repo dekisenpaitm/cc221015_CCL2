@@ -1,5 +1,5 @@
 <template>
-            <img src="../images/banner.png" class="w-full" />
+            <img src="../images/banner.png" class="w-full" alt="collection of content of this site"/>
 </template>
 
 <script>

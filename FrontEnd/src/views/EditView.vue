@@ -22,7 +22,7 @@
                             <label class="label">
                                 <span class="label-text">New E-mail</span>
                             </label>
-                            <input input id="email" type="text" v-model="user.email" placeholder="Enter Email" name="email" required class="input input-bordered" />
+                            <input id="email" type="text" v-model="user.email" placeholder="Enter Email" name="email" required class="input input-bordered" />
                         </div>
                         <div class="form-control">
                             <label class="label">

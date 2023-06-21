@@ -22,7 +22,7 @@
             </div>
             <div class="flex flex-col order-1 md:order-2 w-full card bg-base-300 rounded-box my-4 mx-2 justify-center">
             <div class="flex flex-row card bg-base-300 rounded-box my-4 mx-2 justify-center">
-                    <div><img class="my-4" style="border-radius:5%; width:40vw" src="/dk.jpg"></div>
+                    <div><img class="my-4" style="border-radius:5%; width:40vw" src="/dk.jpg" alt="picture of dejan"></div>
             </div>
             <div class="flex flex-row  card bg-base-300 rounded-box my-4 mx-2 justify-center">
                 <div><p class="hero-content text-justify text-xl md:text-2xl lg:text-3xl p-20 italic">

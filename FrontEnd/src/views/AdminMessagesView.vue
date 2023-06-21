@@ -5,7 +5,6 @@
 </template>
 <script>
 import axios from "axios";
-import UserGrid from "@/components/UserGrid.vue";
 import MessageGrid from "@/components/MessageGrid.vue";
 
 export default {

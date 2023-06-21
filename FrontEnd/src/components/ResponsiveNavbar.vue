@@ -38,14 +38,14 @@
                     <span class="indicator-item indicator-bottom indicator-start badge badge-secondary">New</span>
                     <label v-if="loggedIn" tabindex="0" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full con">
-                        <img src="./icons/profile.png"/>
+                        <img src="./icons/profile.png" alt="icon for profile picture"/>
                     </div>
                 </label>
                 </div>
                 <div v-else>
                     <label v-if="loggedIn" tabindex="0" class="btn btn-ghost btn-circle avatar">
                         <div class="w-10 rounded-full con">
-                            <img src="./icons/profile.png"/>
+                            <img src="./icons/profile.png" alt="icon picture"/>
                         </div>
                     </label>
                 </div>

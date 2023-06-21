@@ -11,7 +11,7 @@
         </router-link>
         </div>
         <div class="collapse-content">
-            <img v-bind:key="users.userID"/>
+            <a v-bind:key="users.userID"/><a/>
             <p>UserID: {{ users.userID }}</p>
             <p>UserName: {{ users.name }}</p>
         </div>

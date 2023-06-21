@@ -18,7 +18,7 @@
                         <label class="label">
                             <span class="label-text">E-mail</span>
                         </label>
-                        <input input id="email" v-model="email" type="text" placeholder="Enter Email" name="email" required class="input input-bordered" />
+                        <input id="email" v-model="email" type="text" placeholder="Enter Email" name="email" required class="input input-bordered" />
                     </div>
                     <div class="form-control">
                         <label class="label">

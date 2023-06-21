@@ -17,9 +17,7 @@ export default {
             comments: [], // Array to store the comments
         };
     },
-
     components: { CommentsGridItem }, // Imported component
-
     created() {
         axios.get(`http://localhost:8000/comments/${this.$route.params.id}`, {
             withCredentials: true,
@@ -33,7 +31,7 @@ export default {
             .catch((error) => {
                 console.error(error); // Log any errors that occur
             });
-    }
+    },
 };
 </script>
 

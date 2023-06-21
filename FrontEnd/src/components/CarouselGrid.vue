@@ -2,22 +2,22 @@
     <div style="width:70vw; border-radius:3%" class="carousel shadow-xl object-fill">
         <div id="item1" class="carousel-item w-full relative">
             <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg absolute bottom-4 left-4 shadow-xl" >Project:Soul</button>
-            <img src="/games/projectsoul.png" class="w-full">
+            <img src="/games/projectsoul.png" class="w-full" alt="project soul picture">
             <router-link to="/games"><button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-accent absolute bottom-4 right-4 shadow-xl">Find out more!</button></router-link>
         </div>
         <div id="item2" class="carousel-item w-full relative">
             <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg absolute bottom-4 left-4 shadow-xl">Dekis Dungeon</button>
-            <img src="/games/dekisdungeon.png" class="w-full">
+            <img src="/games/dekisdungeon.png" class="w-full" alt="dekis dungeon picture">
             <router-link to="/games"><button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-accent absolute bottom-4 right-4 shadow-xl">Find out more!</button></router-link>
         </div>
         <div id="item3" class="carousel-item w-full relative">
             <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg absolute bottom-4 left-4 shadow-xl">SSC: Online TCG</button>
-            <img src="/uiux/ssc.png" class="w-full">
+            <img src="/uiux/ssc.png" class="w-full" alt="ssc project picture">
             <router-link to="/uiux"><button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-accent absolute bottom-4 right-4 shadow-xl">Find out more!</button></router-link>
         </div>
         <div id="item4" class="carousel-item w-full relative">
             <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg absolute bottom-4 left-4 shadow-xl">RDP: Banking App</button>
-            <img src="/uiux/fwoc.png" class="w-full">
+            <img src="/uiux/fwoc.png" class="w-full" alt="rdp project picture">
             <router-link to="/uiux"><button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-accent absolute bottom-4 right-4 shadow-xl">Find out more!</button></router-link>
         </div>
     </div>
