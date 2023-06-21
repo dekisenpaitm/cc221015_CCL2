@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-grow items-center justify-center">
+    <div v-if="!loggedIn" class="flex flex-grow items-center justify-center">
         <div class="flex-grow md:mx-20 lg:mx-64 my-4">
             <div class="h-full">
             <div class="hero">
@@ -54,6 +54,13 @@
         </div>
         </div>
     </div>
+    <div v-else class="hero">
+        <div class="hero-content flex-col">
+            <div class="flex text-4xl font-bold text-center"><p>You're already logged in! :(</p></div>
+            <br>
+            <div class="flex"><router-link to="/"><button class="btn btn-md md:btn-md lg:btn-lg btn-accent shadow-xl">Back to Homepage</button></router-link></div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -62,6 +69,7 @@ import PopUpItem from "@/components/PopUpItem.vue";
 import AlertItem from "@/components/AlertItem.vue";
 
 export default {
+    props:["loggedIn"],
     components: { AlertItem, PopUpItem }, // Import and use the necessary components
     data() {
         return {

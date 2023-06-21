@@ -43,7 +43,15 @@
             </div>
         </div>
     </div>
-    <div v-else><p>Seems like you're already logged in!</p></div>
+    <div v-else>
+        <div class="hero">
+            <div class="hero-content flex-col">
+                <div class="flex text-4xl font-bold text-center"><p>You're already logged in! :(</p></div>
+                <br>
+                <div class="flex"><router-link to="/"><button class="btn btn-md md:btn-md lg:btn-lg btn-accent shadow-xl">Back to Homepage</button></router-link></div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
