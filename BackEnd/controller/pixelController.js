@@ -1,7 +1,6 @@
 const pixelModel = require("../models/pixelModel");
 /**
- * This function sends the games-data to the view
- * This View shows all Games, which exist in the DB
+ * This function passes all PixelArts to the specific view page
  * Preferred-Methode: GET
  *
  * @param req HTTP-Request
@@ -13,7 +12,15 @@ function viewPixels(req, res, next) {
         .then(pixels => res.send(pixels))
         .catch(error => res.sendStatus(500));
 }
-
+/**
+ * This function passes the specific PixelArt to the specific view page
+ * Uses reg.params.id to get the contentID
+ * Preferred-Methode: GET
+ *
+ * @param req HTTP-Request
+ * @param res HTTP-Response
+ * @param next Possible-Middleware Callback
+ */
 function viewPixel(req, res, next) {
     pixelModel.getPixel(parseInt(req.params.id))
         .then(pixel => {

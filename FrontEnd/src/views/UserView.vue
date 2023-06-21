@@ -48,10 +48,11 @@ export default {
     name: "UserView",
     data() {
         return {
-            user:{},
+            user: {}, // Holds the user data
         };
     },
     created() {
+        // Fetch user data on component creation
         axios.get(`http://localhost:8000/users/${this.$route.params.id}`, {
             withCredentials: true,
             headers: {
@@ -59,40 +60,45 @@ export default {
             }
         })
             .then((response) => {
-                this.user = response.data;
-
+                this.user = response.data; // Assign the fetched user data to the 'user' variable
             })
             .catch((error) => {
                 console.error(error);
             });
     },
     methods: {
+        // Function to delete a user
         deleteUser: function () {
             const popUp = document.getElementById('popUp');
-            popUp.classList.remove('hidden')
+            popUp.classList.remove('hidden'); // Show the delete confirmation pop-up
         },
+        // Function to edit a user
         editUser: function () {
-            window.location.href = `/users/edit/${this.$route.params.id}`
+            window.location.href = `/users/edit/${this.$route.params.id}`; // Redirect to the user edit page
         },
-        handleNo: function (){
+        // Function to handle "No" button click on the delete confirmation pop-up
+        handleNo: function () {
             const popUp = document.getElementById('popUp');
-            popUp.classList.add('hidden')
+            popUp.classList.add('hidden'); // Hide the delete confirmation pop-up
         },
-        handleYes: function (){
-            axios.delete(`http://localhost:8000/users/${this.$route.params.id}/delete`, {withCredentials: true})
+        // Function to handle "Yes" button click on the delete confirmation pop-up
+        handleYes: function () {
+            axios.delete(`http://localhost:8000/users/${this.$route.params.id}/delete`, { withCredentials: true })
                 .then((response) => {
-                    this.user = response.data;
-                    window.location.href = '/users';
+                    this.user = response.data; // Update the user data after deletion
+                    window.location.href = '/users'; // Redirect to the users list page
                 })
                 .catch((error) => {
                     console.error(error);
                 });
+
             const popUp = document.getElementById('popUp');
-            popUp.classList.add('hidden')
+            popUp.classList.add('hidden'); // Hide the delete confirmation pop-up
         }
     }
 };
 </script>
+
 
 <style scoped>
 

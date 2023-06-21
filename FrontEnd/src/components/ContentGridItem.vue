@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-1 justify-start items-start">
+    <div class="flex">
             <div class="card w-80 bg-base-300 shadow-xl mx-2 my-4">
                 <figure class="px-10 pt-10">
                     <img :src="content.path" alt="content-image" class="rounded-xl" />

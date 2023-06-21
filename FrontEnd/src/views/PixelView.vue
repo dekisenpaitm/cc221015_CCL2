@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center flex-row flex-wrap md:mx-56 xl:mx-64">
+    <div class="flex flex-row flex-wrap md:mx-56 xl:mx-64">
         <ContentGrid :contents="contents" :contentType="contentType"/>
     </div>
 </template>
@@ -9,10 +9,10 @@ import ContentGrid from "@/components/ContentGrid.vue";
 
 export default {
     name: "PixelView",
-    components: {ContentGrid},
+    components: { ContentGrid }, // Import and use the ContentGrid component
     data() {
         return {
-            contentType:"pixels",
+            contentType: "pixels",
             contents: [],
         };
     },
@@ -24,7 +24,7 @@ export default {
             }
         })
             .then((response) => {
-                this.contents = response.data;
+                this.contents = response.data; // Set the contents data with the response data
             })
             .catch((error) => {
                 console.error(error);

@@ -9,14 +9,15 @@ import ContentGrid from "@/components/ContentGrid.vue";
 
 export default {
     name: "UIUXView",
-    components: {ContentGrid},
+    components: { ContentGrid }, // Import and use the ContentGrid component
     data() {
         return {
-            contentType:"uiuxs",
-            contents: [],
+            contentType: "uiuxs", // Specify the content type as "uiuxs"
+            contents: [], // Holds the list of UI/UX content
         };
     },
     created() {
+        // Fetch the UI/UX content on component creation
         axios.get(`http://localhost:8000/uiuxs`, {
             withCredentials: true,
             headers: {
@@ -24,7 +25,7 @@ export default {
             }
         })
             .then((response) => {
-                this.contents = response.data;
+                this.contents = response.data; // Assign the fetched UI/UX content to the 'contents' variable
             })
             .catch((error) => {
                 console.error(error);

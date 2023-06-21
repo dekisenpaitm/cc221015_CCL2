@@ -77,38 +77,45 @@
 
 <script>
 import axios from "axios";
+
 export default {
-    props:['loggedIn'],
+    props: ['loggedIn'], // Props received from the parent component
+
     data() {
         return {
-            messages:[],
-            users: {
-            },
+            messages: [], // An array to store the fetched messages
+            users: {}, // An object to store user data (currently empty)
         };
     },
+
     mounted() {
-            axios.get('http://localhost:8000/contact', {
-                withCredentials: true,
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(response => {
-                this.messages = response.data
-            })
+        // Fetch messages from the server when the component is mounted
+        axios.get('http://localhost:8000/contact', {
+            withCredentials: true, // Send cookies along with the request
+            headers: {
+                'Content-Type': 'application/json' // Set the request content type
+            }
+        })
+            .then(response => {
+                this.messages = response.data; // Store the fetched messages in the component's data
+            });
     },
-    methods:{
-        userLogout(){
-            axios.get('http://localhost:8000/logout',{
-                withCredentials: true,
+
+    methods: {
+        userLogout() {
+            // Send a logout request to the server when the user logs out
+            axios.get('http://localhost:8000/logout', {
+                withCredentials: true, // Send cookies along with the request
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json' // Set the request content type
                 }
-            }).then(response => {
-                window.location.href = '/'
             })
+                .then(response => {
+                    window.location.href = '/'; // Redirect the user to the homepage after logout
+                });
         },
     }
-}
+};
 </script>
 
 <style scoped>

@@ -56,14 +56,14 @@
 import axios from "axios";
 
 export default {
-    props:['loggedIn'],
+    props: ['loggedIn'],
     data() {
         return {
             user: {
-                userID:"",
+                userID: "",
                 name: "",
                 password: "",
-                passwordConfirmation:"",
+                passwordConfirmation: "",
                 email: "",
             },
             siteID: "",
@@ -71,26 +71,28 @@ export default {
     },
     mounted() {
         axios
-            .get(`http://localhost:8000/users/${this.$route.params.id}/edit`,{
+            .get(`http://localhost:8000/users/${this.$route.params.id}/edit`, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'application/json'
                 }
             })
             .then((response) => {
-                if((response.data.userID === parseInt(this.$route.params.id)) || response.data.role === 'admin') {
-                    response.data.password = "",
-                        this.user = response.data
+                if ((response.data.userID === parseInt(this.$route.params.id)) || response.data.role === 'admin') {
+                    response.data.password = "";
+                    this.user = response.data; // Assign the retrieved user details to the "user" data property
                     this.siteID = parseInt(this.$route.params.id);
-                }else{
+                } else {
+                    // Handle unauthorized access or invalid user
                 }
             })
             .catch((error) => {
+                // Handle error
             });
     },
     methods: {
         editUser() {
-            if(this.user.password === this.user.passwordConfirmation && this.user.password !== "" && this.user.passwordConfirmation !== "") {
+            if (this.user.password === this.user.passwordConfirmation && this.user.password !== "" && this.user.passwordConfirmation !== "") {
                 axios
                     .put(
                         `http://localhost:8000/users/${this.$route.params.id}/edit`,
@@ -102,20 +104,22 @@ export default {
                         },
                     )
                     .then((response) => {
-                        this.$emit('editUser', {send: true, message: 'Thank you! Your credentials have been changed! :D'})
-                        this.redirect()
+                        this.$emit('editUser', { send: true, message: 'Thank you! Your credentials have been changed! :D' });
+                        this.redirect(); // Redirect the user after successfully editing the user details
                     })
                     .catch((error) => {
-                        this.$emit('editUser', {send: false, message: 'Please make sure to fill all fields! :('})
+                        this.$emit('editUser', { send: false, message: 'Please make sure to fill all fields! :(' });
                     });
             } else {
-                this.$emit('editUser', {send: false, message: "Ooooopsies! There's an error in your passwords! :("})
+                this.$emit('editUser', { send: false, message: "Ooooopsies! There's an error in your passwords! :(" });
             }
         },
-        redirect: function(){
-            setTimeout(function(){
-                window.location.href='/';},2000)
+        redirect: function() {
+            setTimeout(function() {
+                window.location.href = '/';
+            }, 2000);
         }
     },
 };
 </script>
+

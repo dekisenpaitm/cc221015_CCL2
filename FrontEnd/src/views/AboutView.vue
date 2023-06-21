@@ -38,32 +38,26 @@
 <style>
 </style>
 <script>
-
 import TextBoxItem from "@/components/TextBoxItem.vue";
 import RatingItem from "@/components/RatingItem.vue";
 
 export default {
-    components: {RatingItem, TextBoxItem},
+    components: { RatingItem, TextBoxItem },
     data() {
         return {
-            title:"About me!",
-            body:[
+            title: "About me!",
+            body: [
                 {
-                    p:  "My name is Dejan Kovacevic, and I'm a 32-year-old student currently studying at FH St.Pölten in Austria. I am pursuing a study course in BCC (Bachelor's in Computer Science)." +
-                        "I've worked in different fields and collected a variety of skills throughout my journey. Around 1 1/2 year ago I discovered coding by chance and it turned out to be my biggest" +
-                        "passion in life."
+                    p: "My name is Dejan Kovacevic, and I'm a 32-year-old student currently studying at FH St.Pölten in Austria. I am pursuing a study course in BCC (Bachelor's in Computer Science). I've worked in different fields and collected a variety of skills throughout my journey. Around 1 1/2 year ago I discovered coding by chance and it turned out to be my biggest passion in life."
                 },
                 {
-                    p:  "In addition to my academic pursuits, I am passionate about various hobbies. One of my main interests is Game Development, where I enjoy utilizing tools like Unity and programming languages like C#. I also have a strong foundation in programming in general, with expertise in JavaScript, Vue, and Tailwind CSS." +
-                        "Aside from coding, I find great joy in expressing my creativity through Digital Art, particularly in the realm of Pixel Art. It allows me to combine my technical skills with my artistic side, resulting in visually captivating creations." +
-                        "When I'm not immersed in the digital world, I prioritize taking care of my physical well-being. I am an advocate for leading an active lifestyle and enjoy working out regularly."
+                    p: "In addition to my academic pursuits, I am passionate about various hobbies. One of my main interests is Game Development, where I enjoy utilizing tools like Unity and programming languages like C#. I also have a strong foundation in programming in general, with expertise in JavaScript, Vue, and Tailwind CSS. Aside from coding, I find great joy in expressing my creativity through Digital Art, particularly in the realm of Pixel Art. It allows me to combine my technical skills with my artistic side, resulting in visually captivating creations. When I'm not immersed in the digital world, I prioritize taking care of my physical well-being. I am an advocate for leading an active lifestyle and enjoy working out regularly."
                 },
                 {
-                    p:  "I am excited to showcase my projects, skills, and experiences on this platform. Feel free to explore my work and get in touch if you have any inquiries or collaboration opportunities. Thank you for visiting!"
+                    p: "I am excited to showcase my projects, skills, and experiences on this platform. Feel free to explore my work and get in touch if you have any inquiries or collaboration opportunities. Thank you for visiting!"
                 },
             ],
-        }
-    }
-}
-
+        };
+    },
+};
 </script>

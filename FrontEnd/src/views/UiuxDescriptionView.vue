@@ -22,16 +22,23 @@ import DescriptionItem from "@/components/DescriptionItem.vue";
 
 export default {
     name: "uiuxDescriptionView",
-    components: {DescriptionItem, ContentImage, Heart, CommentBox, CommentsGrid},
-    props:['loggedIn'],
+    components: {
+        DescriptionItem,
+        ContentImage,
+        Heart,
+        CommentBox,
+        CommentsGrid
+    }, // Import and use the necessary components
+    props: ['loggedIn'], // Receive the 'loggedIn' prop
     data() {
         return {
-            contentType:"uiuxs",
-            uiux:{},
-            comments:[]
+            contentType: "uiuxs", // Specify the content type as "uiuxs"
+            uiux: {}, // Holds the UI/UX content
+            comments: [] // Holds the comments for the UI/UX content
         };
     },
     created() {
+        // Fetch the UI/UX content on component creation
         axios.get(`http://localhost:8000/uiuxs/${this.$route.params.id}`, {
             withCredentials: true,
             headers: {
@@ -39,13 +46,13 @@ export default {
             }
         })
             .then((response) => {
-                this.uiux = response.data;
-
+                this.uiux = response.data; // Assign the fetched UI/UX content to the 'uiux' variable
             })
             .catch((error) => {
                 console.error(error);
             });
 
+        // Fetch the comments for the UI/UX content on component creation
         axios.get(`http://localhost:8000/${this.$route.params.id}/comments`, {
             withCredentials: true,
             headers: {
@@ -53,8 +60,7 @@ export default {
             }
         })
             .then((response) => {
-                this.comments = response.data;
-
+                this.comments = response.data; // Assign the fetched comments to the 'comments' variable
             })
             .catch((error) => {
                 console.error(error);
@@ -62,12 +68,12 @@ export default {
     },
     methods: {
         handleContent: function handleContent(data) {
-            this.$emit('likeContent', data);
+            this.$emit('likeContent', data); // Emit the 'likeContent' event with the provided data
         },
     }
-
 };
 </script>
+
 
 <style scoped>
 

@@ -52,22 +52,23 @@ import PopUpItem from "@/components/PopUpItem.vue";
 import AlertItem from "@/components/AlertItem.vue";
 
 export default {
-    components: {AlertItem, PopUpItem},
-    props: ['loggedIn'],
+    components: { AlertItem, PopUpItem }, // Import and use the necessary components
+    props: ['loggedIn'], // Receive the 'loggedIn' prop
     data() {
         return {
             name: '',
             email: '',
             password: '',
             passwordConfirmation: '',
-            send:"",
-            message:"",
+            send: "", // Variable to control whether to send a message or not
+            message: "", // Message to be sent
         };
     },
     methods: {
         createUser() {
-            if(this.password === this.passwordConfirmation) {
+            if (this.password === this.passwordConfirmation) { // Check if the passwords match
                 if (this.name !== "" && this.email !== "" && this.password !== "" && this.passwordConfirmation !== "") {
+                    // Check if all required fields are filled
                     axios.post('http://localhost:8000/register/add', {
                         name: this.name,
                         email: this.email,
@@ -77,37 +78,40 @@ export default {
                         headers: {
                             'Content-Type': 'application/json'
                         }
-                    }).then(response => {
-                        if (response.data === 'OK') {
-                            this.send = true;
-                            this.$emit('createUser', {send: true, message: "Thank you && Welcome! You'll be redirected in a second! :D"})
-                            this.redirect()
-                            this.name = "";
-                            this.email = "";
-                            this.password = "";
-                            this.passwordConfirmation = ""
-                        }
                     })
+                        .then(response => {
+                            if (response.data === 'OK') {
+                                this.send = true; // Set 'send' to true to indicate successful registration
+                                this.$emit('createUser', { send: true, message: "Thank you && Welcome! You'll be redirected in a second! :D" });
+                                this.redirect(); // Redirect the user after successful registration
+                                this.name = "";
+                                this.email = "";
+                                this.password = "";
+                                this.passwordConfirmation = "";
+                            }
+                        })
                         .catch(error => {
-                            this.send = false;
-                            this.$emit('createUser', {send: false, message: 'Either the Username || Email is already in use! :('});
+                            this.send = false; // Set 'send' to false to indicate registration failure
+                            this.$emit('createUser', { send: false, message: 'Either the Username || Email is already in use! :(' });
                         });
                 } else {
-                    this.$emit('createUser', {send: false, message: 'Make sure to fill out the full form! :('});
+                    this.$emit('createUser', { send: false, message: 'Make sure to fill out the full form! :(' });
                 }
             } else {
-                this.$emit('createUser', {send: false, message: 'Oooopsies, your passwords are not the same! :('});
-                this.password="";
-                this.passwordConfirmation="";
+                this.$emit('createUser', { send: false, message: 'Oooopsies, your passwords are not the same! :(' });
+                this.password = "";
+                this.passwordConfirmation = "";
             }
         },
-        redirect: function(){
-            setTimeout(function(){
-                window.location.href='/';},5000)
+        redirect: function () {
+            setTimeout(function () {
+                window.location.href = '/';
+            }, 5000); // Redirect the user to the homepage after a delay of 5 seconds
         }
     }
 };
 </script>
+
 
 
 <style scoped>

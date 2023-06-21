@@ -62,13 +62,13 @@ import PopUpItem from "@/components/PopUpItem.vue";
 import AlertItem from "@/components/AlertItem.vue";
 
 export default {
-    components: {AlertItem, PopUpItem},
+    components: { AlertItem, PopUpItem }, // Import and use the necessary components
     data() {
         return {
             username: "",
             password: "",
-            send:"",
-            message:""
+            send: "",
+            message: ""
         };
     },
     methods: {
@@ -85,28 +85,25 @@ export default {
                     },
                 })
                 .then((response) => {
-                        if(response.data === "OK") {
-                            this.send = true;
-                            this.$emit('loginUser', {send: true, message: "Welcome back! :D You'll be redirected in a second <3"});
-                            this.redirect()
-                        }
+                    if (response.data === "OK") {
+                        this.send = true;
+                        this.$emit('loginUser', { send: true, message: "Welcome back! :D You'll be redirected in a second <3" });
+                        this.redirect();
+                    }
                 })
                 .catch((error) => {
-                    this.$emit('loginUser', {send: false, message: "Either your Username or your Password is wrong! :("});
+                    this.$emit('loginUser', { send: false, message: "Either your Username or your Password is wrong! :(" });
                     console.error(error);
                 });
 
             this.username = "";
             this.password = "";
         },
-        redirect: function(){
-            setTimeout(function(){
-                window.location.href='/';},2000)
+        redirect: function () {
+            setTimeout(function () {
+                window.location.href = '/';
+            }, 2000);
         }
     },
 };
 </script>
-
-<style scoped>
-
-</style>

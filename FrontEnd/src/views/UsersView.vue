@@ -9,14 +9,15 @@ import UserGrid from "@/components/UserGrid.vue";
 
 export default {
     name: "UsersView",
-    components: {UserGrid},
-    props: ['loggedIn'],
+    components: { UserGrid }, // Import and use the UserGrid component
+    props: ['loggedIn'], // Declare a prop named 'loggedIn'
     data() {
         return {
-            users: [],
+            users: [], // Holds the list of users
         };
     },
     created() {
+        // Fetch the list of users on component creation
         axios.get(`http://localhost:8000/users`, {
             withCredentials: true,
             headers: {
@@ -24,7 +25,7 @@ export default {
             }
         })
             .then((response) => {
-                this.users = response.data;
+                this.users = response.data; // Assign the fetched list of users to the 'users' variable
             })
             .catch((error) => {
                 console.error(error);
@@ -32,4 +33,5 @@ export default {
     },
 };
 </script>
+
 

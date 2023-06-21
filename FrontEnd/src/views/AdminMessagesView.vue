@@ -10,7 +10,7 @@ import MessageGrid from "@/components/MessageGrid.vue";
 
 export default {
     name: "AdminMessagesView",
-    components: {MessageGrid},
+    components: { MessageGrid },
     props: ['loggedIn'],
     data() {
         return {
@@ -25,7 +25,7 @@ export default {
             }
         })
             .then((response) => {
-                this.messages = response.data;
+                this.messages = response.data; // Store the received messages in the 'messages' data property
             })
             .catch((error) => {
                 console.error(error);
@@ -33,4 +33,5 @@ export default {
     },
 };
 </script>
+
 

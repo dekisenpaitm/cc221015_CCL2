@@ -11,11 +11,11 @@ import CommentBox from "@/components/CommentBox.vue";
 
 export default {
     name: "GameView",
-    components: {CommentBox, ContentGridItem, ContentGrid},
+    components: { CommentBox, ContentGridItem, ContentGrid }, // Import and use the necessary components
     data() {
         return {
-            contentType: "games",
-            contents: [],
+            contentType: "games", // Set the content type
+            contents: [], // Initialize an empty array to store the game contents
         };
     },
     created() {
@@ -26,10 +26,10 @@ export default {
             }
         })
             .then((response) => {
-                this.contents = response.data;
+                this.contents = response.data; // Assign the retrieved game contents to the "contents" data property
             })
             .catch((error) => {
-                console.error(error);
+                console.error(error); // Log any errors that occur during the API request
             });
     },
 };

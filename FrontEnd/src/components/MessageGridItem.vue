@@ -20,29 +20,33 @@
 </template>
 
 <script>
-
 import axios from "axios";
 
 export default {
-    name: "UserGridItem",
-    props: ['message', 'loggedIn'],
+    name: "UserGridItem", // Component name
+
+    props: ['message', 'loggedIn'], // Props received from the parent component
+
     methods: {
-      deleteMessage: function(){
-          axios.delete(`http://localhost:8000/contact/${this.message.contactID}`, {
-              withCredentials: true,
-              headers: {
-                  'Content-Type': 'application/json'
-              }
-          }).then(response =>{
-              window.location.reload()
-          })
-              .catch((error) => {
-                  console.error(error);
-              });
-      }
+        deleteMessage: function() {
+            // Send a DELETE request to delete the message
+            axios.delete(`http://localhost:8000/contact/${this.message.contactID}`, {
+                withCredentials: true, // Send cookies along with the request
+                headers: {
+                    'Content-Type': 'application/json' // Set the request content type
+                }
+            })
+                .then(response => {
+                    window.location.reload(); // Reload the page after successful deletion
+                })
+                .catch((error) => {
+                    console.error(error); // Log any errors to the console
+                });
+        }
     }
 };
 </script>
+
 
 <style>
 </style>

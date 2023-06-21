@@ -15,9 +15,7 @@ async function authenticateUser({uname, pw} , users, res){
     const user = users.find(u => {
         return u.name === uname
     });
-    //returns pending promise --> doesn't render true
     if (user && await checkPassword(pw, user.password)) {
-    // Generate an access token
         const payload =
             {
                 id: user.userID,

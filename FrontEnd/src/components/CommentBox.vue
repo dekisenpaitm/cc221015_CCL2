@@ -21,42 +21,46 @@
 import axios from "axios";
 
 export default {
-    name: "CommentBox",
-    props:['loggedIn', 'contentType'],
-    data(){
-        return{
-            titel:"",
-            description: "",
-            send:"",
-            message:""
-        }
+    name: "CommentBox", // Component name
+
+    props: ['loggedIn', 'contentType'], // Props received from the parent component
+
+    data() {
+        return {
+            titel: "", // Comment title
+            description: "", // Comment description
+            send: "", // Flag to indicate if the comment was successfully posted
+            message: "", // Message to display after posting the comment
+        };
     },
+
     methods: {
         postComment: function () {
             let data = {
-                contentID: this.$route.params.id,
-                titel: this.titel,
-                description: this.description,
-            }
-            if(this.titel !== "" && this.description !== "") {
-                axios
-                    .post(`http://localhost:8000/comments/${this.$route.params.id}`, data, {withCredentials: true})
-                    .then(response => {
-                            this.send = true;
-                            this.$emit('postComment', {send: true, message: 'Thank you! Your comment has been posted! :D'});
-                        }
-                    ).catch(response => {
-                    this.send = false;
-                    this.$emit('postComment', {send: false, message: 'You have to be logged in to post comments! :('})
+                contentID: this.$route.params.id, // ID of the content the comment belongs to
+                titel: this.titel, // Title of the comment
+                description: this.description, // Description of the comment
+            };
 
-                })
+            if (this.titel !== "" && this.description !== "") {
+                axios
+                    .post(`http://localhost:8000/comments/${this.$route.params.id}`, data, { withCredentials: true })
+                    .then(response => {
+                        this.send = true; // Set the flag to indicate a successful comment post
+                        this.$emit('postComment', { send: true, message: 'Thank you! Your comment has been posted! :D' }); // Emit an event to notify the parent component
+                    })
+                    .catch(response => {
+                        this.send = false; // Set the flag to indicate a failed comment post
+                        this.$emit('postComment', { send: false, message: 'You have to be logged in to post comments! :(' }); // Emit an event to notify the parent component
+                    });
             } else {
-                this.$emit('postComment', {send: false, message: 'Please make sure to fill all fields! :('})
+                this.$emit('postComment', { send: false, message: 'Please make sure to fill all fields! :(' }); // Emit an event to notify the parent component about empty fields
             }
         },
     }
 }
 </script>
+
 
 <style scoped>
 

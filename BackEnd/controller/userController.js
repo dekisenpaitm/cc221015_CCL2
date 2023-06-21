@@ -87,6 +87,15 @@ function deleteUser(req,res,next){
         .catch(error => {})
 
 }
+/**
+ * This function calls a specific user in the db
+ * data inside req.params.id
+ * Preferred-Methode: GET
+ *
+ * @param req HTTP-Request
+ * @param res HTTP-Response
+ * @param next Possible-Middleware
+ */
 function getUserData(req, res, next) {
     userModel.getUser(parseInt(req.params.id))
         .then(user => {
@@ -94,6 +103,17 @@ function getUserData(req, res, next) {
         })
         .catch(error => res.sendStatus(500))
 }
+
+/**
+ * This function edits a specific user in the db
+ * checks the access beforehand
+ * data inside req.params.id
+ * Preferred-Methode: PUT
+ *
+ * @param req HTTP-Request
+ * @param res HTTP-Response
+ * @param next Possible-Middleware
+ */
 function editUser(req, res, next) {
     let hasAccess = authenticationService.checkAccess(req.user.role, parseInt(req.user.id), parseInt(req.params.id));
     if (hasAccess) {
@@ -132,6 +152,7 @@ function login(req,res,next){
 
 /**
  * This function logs out the User
+ * Kills the cookie
  * Preferred-Methode: GET
  *
  * @param req HTTP-Request

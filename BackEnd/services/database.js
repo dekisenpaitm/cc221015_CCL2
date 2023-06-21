@@ -1,6 +1,7 @@
-//// Modules
+// Importing the mysql module
 const mysql = require('mysql');
 
+// Creating a connection configuration object
 const config = mysql.createConnection({
     host: "213.47.34.218",
     port: 42069,
@@ -9,13 +10,16 @@ const config = mysql.createConnection({
     database: "DekisDatabase"
 });
 
+/**
+ * This function handles the database connection and reconnects if the connection is lost
+ */
 function handleDisconnect() {
     config.connect((err) => {
         if (err) {
-            console.error('Error connecting to database:', err);
+            console.error('Error connecting to the database:', err);
             setTimeout(handleDisconnect, 2000); // Retry connection after 2 seconds
-        }else{
-            console.log("Connected");
+        } else {
+            console.log("Connected to the database");
         }
     });
 
@@ -29,6 +33,8 @@ function handleDisconnect() {
     });
 }
 
+// Call the handleDisconnect function to establish the database connection
 handleDisconnect();
 
-module.exports = {config};
+// Exporting the config object for use in other modules
+module.exports = { config };

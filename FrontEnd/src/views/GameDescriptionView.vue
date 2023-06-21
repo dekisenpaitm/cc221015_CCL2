@@ -22,12 +22,12 @@ import DescriptionItem from "@/components/DescriptionItem.vue";
 
 export default {
     name: "GameDescriptionView",
-    components: {DescriptionItem, ContentImage, Heart, CommentBox, CommentsGrid},
+    components: { DescriptionItem, ContentImage, Heart, CommentBox, CommentsGrid }, // Import and use the necessary components
     props: ['loggedIn'],
     data() {
         return {
-            contentType: "games",
-            game: {},
+            contentType: "games", // Set the content type
+            game: {}, // Initialize an empty object to store the game details
         };
     },
     created() {
@@ -38,22 +38,17 @@ export default {
             }
         })
             .then((response) => {
-                this.game = response.data;
-
+                this.game = response.data; // Assign the retrieved game details to the "game" data property
             })
             .catch((error) => {
-                console.error(error);
+                console.error(error); // Log any errors that occur during the API request
             });
 
     },
     methods: {
         handleContent: function handleContent(data) {
-            this.$emit('likeContent', data);
+            this.$emit('likeContent', data); // Emit an event to handle liking the content
         },
     }
 }
 </script>
-
-<style scoped>
-
-</style>

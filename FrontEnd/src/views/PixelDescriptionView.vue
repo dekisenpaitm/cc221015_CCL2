@@ -22,13 +22,13 @@ import DescriptionItem from "@/components/DescriptionItem.vue";
 
 export default {
     name: "PixelDescriptionView",
-    components: {DescriptionItem, ContentImage, Heart, CommentBox, CommentsGrid},
-    props: ['loggedIn'],
+    components: { DescriptionItem, ContentImage, Heart, CommentBox, CommentsGrid }, // Import and use the necessary components
+    props: ['loggedIn'], // Declare the loggedIn prop
     data() {
         return {
             contentType: "pixels",
-            pixel: {},
-            comments: []
+            pixel: {}, // Store the pixel data
+            comments: [] // Store the comments data
         };
     },
     created() {
@@ -39,7 +39,7 @@ export default {
             }
         })
             .then((response) => {
-                this.pixel = response.data;
+                this.pixel = response.data; // Set the pixel data with the response data
             })
             .catch((error) => {
                 console.error(error);
@@ -52,8 +52,7 @@ export default {
             }
         })
             .then((response) => {
-                this.comments = response.data;
-
+                this.comments = response.data; // Set the comments data with the response data
             })
             .catch((error) => {
                 console.error(error);
@@ -61,11 +60,12 @@ export default {
     },
     methods: {
         handleContent: function handleContent(data) {
-            this.$emit('likeContent', data);
+            this.$emit('likeContent', data); // Emit the 'likeContent' event with the provided data
         },
     }
 }
 </script>
+
 
 <style scoped>
 

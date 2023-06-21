@@ -1,8 +1,8 @@
 const gameModel = require("../models/gameModel");
 
 /**
- * This function sends the games-data to the view
- * This View shows all Games, which exist in the DB
+ * This function passes the games to the view
+ * This View shows all games which exist in the DB
  * Preferred-Methode: GET
  *
  * @param req HTTP-Request
@@ -14,7 +14,15 @@ function viewGames(req, res, next) {
         .then(games => res.send(games))
         .catch(error => res.sendStatus(500));
 }
-
+/**
+ * This function passes a specific game to the view
+ * This View shows the specific game which exist in the DB
+ * Preferred-Methode: GET
+ *
+ * @param req HTTP-Request
+ * @param res HTTP-Response
+ * @param next Possible-Middleware Callback
+ */
 function viewGame(req, res, next) {
     gameModel.getGame(parseInt(req.params.id))
         .then(game => {

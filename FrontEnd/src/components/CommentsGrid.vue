@@ -8,15 +8,19 @@
 <script>
 import CommentsGridItem from "@/components/CommentsGridItem.vue";
 import axios from "axios";
+
 export default {
-    name: "CommentsGrid",
-    data(){
-        return{
-            comments:[],
-        }
+    name: "CommentsGrid", // Component name
+
+    data() {
+        return {
+            comments: [], // Array to store the comments
+        };
     },
-    components: { CommentsGridItem },
-    created(){
+
+    components: { CommentsGridItem }, // Imported component
+
+    created() {
         axios.get(`http://localhost:8000/comments/${this.$route.params.id}`, {
             withCredentials: true,
             headers: {
@@ -24,12 +28,12 @@ export default {
             }
         })
             .then((response) => {
-                this.comments = response.data;
-
+                this.comments = response.data; // Store the received comments in the "comments" array
             })
             .catch((error) => {
-                console.error(error);
+                console.error(error); // Log any errors that occur
             });
     }
 };
 </script>
+

@@ -1,15 +1,15 @@
-//// Modules
-require('dotenv').config()
-const express = require ('express');
+// Importing the required modules
+require('dotenv').config();
+const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
-//// App
+// Creating an express app instance
 const app = express();
 const port = 8000;
 
-//// Routers
+// Importing the routers
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const registerRouter = require('./routes/register');
@@ -21,14 +21,14 @@ const uiuxRouter = require('./routes/uiuxs');
 const commentsRouter = require('./routes/comments');
 const likesRouter = require('./routes/likes');
 const contactRouter = require('./routes/contact');
-const {authenticateJWT} = require("./services/authentication");
+const { authenticateJWT } = require("./services/authentication");
 
-//// App - Configuration
-app.use(cors({origin: true, credentials: true}));
+// App Configuration
+app.use(cors({ origin: true, credentials: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//// App - Routes
+// App Routes
 app.use(cookieParser());
 app.use(authenticateJWT);
 
@@ -45,29 +45,19 @@ app.use('/likes', likesRouter);
 app.use('/contact', contactRouter);
 
 /**
- * This function renders an error to the User through the error-view
- * This View displays an error to the User
+ * This function renders the PageNotFound-View.
+ * The view displays that a certain page cannot be found.
  *
- * @param err The error message
- * @param req HTTP-Request
- * @param res HTTP-Response
- * @param next Possible-Middleware
+ * @param {Object} req - The HTTP-Request object
+ * @param {Object} res - The HTTP-Response object
+ * @param {Function} next - Possible middleware
  */
-function errorHandler(err, req, res, next){
-}
-
-/**
- * This function renders the PageNotFound-View
- * This View displays that a certain page cannot be found
- *
- * @param req HTTP-Request
- * @param res HTTP-Response
- * @param next Possible-Middleware
- */
-function notFound(req,res,next){
+function notFound(req, res, next) {
     res.status(404);
+    // Your implementation goes here
 }
 
+// Starting the server
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });

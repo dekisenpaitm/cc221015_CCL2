@@ -5,7 +5,7 @@
     </div>
     <div class="min-h-screen flex flex-col">
         <ResponsiveNavbar :loggedIn="loggedIn" class="sticky top-0 z-40 w-full" />
-        <div class="flex flex-grow">
+        <div class="flex flex-grow justify-center items-center">
                 <RouterView :loggedIn="loggedIn"
                         @likeContent="updateData"
                         @createUser="updateData"
@@ -26,16 +26,19 @@ import ResponsiveNavbar from "@/components/ResponsiveNavbar.vue";
 import PopUpItem from "@/components/PopUpItem.vue";
 import AlertItem from "@/components/AlertItem.vue";
 
+// Reactive variables
 const loggedIn = ref(null);
 const send = ref(false);
 const message = ref('');
 
+// Function to update data based on received data
 function updateData(data) {
     send.value = data.send;
     message.value = data.message;
-    openAlert()
+    openAlert();
 }
 
+// Fetch user data on component mount
 onMounted(async () => {
     try {
         const response = await axios.get('http://localhost:8000/', { withCredentials: true });
@@ -45,17 +48,20 @@ onMounted(async () => {
     }
 });
 
+// Function to close the alert container
 function closeAlert() {
     const alertContainer = document.querySelector('.fixed');
-    alertContainer.classList.add('hidden')
+    alertContainer.classList.add('hidden');
 }
+
+// Function to open the alert container and close it after 3 seconds
 function openAlert() {
     const alertContainer = document.querySelector('.fixed');
     alertContainer.classList.remove('hidden');
-    setTimeout(closeAlert,3000)
+    setTimeout(closeAlert, 3000);
 }
-
 </script>
+
 
 <style>
 </style>
