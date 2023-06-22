@@ -5,12 +5,12 @@
                 {{ skillName }}
             </div>
             <div class="divider-horizontal font-bold text-xs md:text-xl lg:text-3xl">:</div>
-            <div class="flex">
+            <div class="flex tab-disabled pointer-events-none">
                 <div v-for="n in ratingNr">
-                    <input :name="ratingNr" class="flex-none mask mask-star-2 bg-yellow-300 w-full"/>
+                    <input tabindex="-1" :name="ratingNr" class="flex-none mask mask-star-2 bg-yellow-300 w-full pointer-events-none"/>
                 </div>
                 <div v-for="n in missingNr">
-                    <input :name="missingNr" class="flex-none mask mask-star-2 bg-base-100 w-full"/>
+                    <input tabindex="-1" :name="missingNr" class="flex-none mask mask-star-2 bg-base-100 w-full pointer-events-none"/>
                 </div>
             </div>
         </div>

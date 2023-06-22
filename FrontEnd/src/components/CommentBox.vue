@@ -41,7 +41,7 @@ export default {
                 titel: this.titel, // Title of the comment
                 description: this.description, // Description of the comment
             };
-            if (this.titel !== "" && this.description !== "") {
+            if (this.titel.trim().length !== 0 && this.description.trim().length !== 0) {
                 axios
                     .post(`http://localhost:8000/comments/${this.$route.params.id}`, data, { withCredentials: true })
                     .then(response => {

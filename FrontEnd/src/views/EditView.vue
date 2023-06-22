@@ -92,7 +92,7 @@ export default {
     },
     methods: {
         editUser() {
-            if (this.user.password === this.user.passwordConfirmation && this.user.password !== "" && this.user.passwordConfirmation !== "") {
+            if (this.user.password === this.user.passwordConfirmation && this.user.password.trim().length !== 0 && this.user.passwordConfirmation.trim().length !== 0) {
                 axios
                     .put(
                         `http://localhost:8000/users/${this.$route.params.id}/edit`,

@@ -6,8 +6,8 @@
                 <div class="bg-base-300 text-white px-6 py-4 rounded-md shadow-md">
                     <p class="mb-2">You sure you want to delete?</p>
                     <div class="flex justify-center">
-                        <button class="btn btn-md md:btn-md btn-accent shadow-xl mx-2" v-on:click="handleYes()">Yes</button>
-                        <button class="btn btn-md md:btn-md btn-error shadow-xl mx-2 text-white" v-on:click="handleNo()">No</button>
+                        <button class="btn btn-md md:btn-md btn-error shadow-xl mx-2 text-white" v-on:click="handleYes()">Yes</button>
+                        <button class="btn btn-md md:btn-md btn-accent shadow-xl mx-2" v-on:click="handleNo()">No</button>
                     </div>
                 </div>
             </div>
@@ -67,6 +67,7 @@ export default {
             .catch((error) => {
                 console.error(error);
             });
+
     },
     methods: {
         // Function to delete a user
@@ -88,7 +89,10 @@ export default {
             axios.delete(`http://localhost:8000/users/${this.$route.params.id}/delete`, { withCredentials: true })
                 .then((response) => {
                     this.user = response.data; // Update the user data after deletion
+                    if(this.loggedIn.role !== 'admin'){
                     this.userLogout()
+                    }
+
                 })
                 .catch((error) => {
                     console.error(error);
@@ -98,7 +102,6 @@ export default {
             popUp.classList.add('hidden'); // Hide the delete confirmation pop-up
         },
         userLogout() {
-            if(this.loggedIn.role !== 'admin') {
                 // Send a logout request to the server when the user logs out
                 axios.get('http://localhost:8000/logout', {
                     withCredentials: true, // Send cookies along with the request
@@ -109,7 +112,6 @@ export default {
                     .then(response => {
                         window.location.href = '/'; // Redirect the user to the homepage after logout
                     });
-            }
         },
     }
 };

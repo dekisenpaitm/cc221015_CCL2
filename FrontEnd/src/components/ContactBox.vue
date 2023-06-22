@@ -57,7 +57,7 @@ export default {
                 description: this.description, // Get the description input value
             };
 
-            if (data.name !== "" && data.email !== "" && data.titel !== "" && data.description !== "") {
+            if (data.name.trim().length !== 0 && data.email.trim().length !== 0 && data.titel.trim().length !== 0 && data.description.trim().length !== 0) {
                 // Check if all fields are filled
 
                 axios.post(`http://localhost:8000/contact`, data, {withCredentials: true}); // Send a POST request to send the message

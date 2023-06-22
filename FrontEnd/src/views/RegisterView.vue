@@ -75,7 +75,7 @@ export default {
     methods: {
         createUser() {
             if (this.password === this.passwordConfirmation) { // Check if the passwords match
-                if (this.name !== "" && this.email !== "" && this.password !== "" && this.passwordConfirmation !== "") {
+                if (this.name.trim().length !== 0 && this.email.trim().length !== 0 && this.password.trim().length !== 0 && this.passwordConfirmation.trim().length !== 0) {
                     // Check if all required fields are filled
                     axios.post('http://localhost:8000/register/add', {
                         name: this.name,
