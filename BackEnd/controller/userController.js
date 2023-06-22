@@ -79,9 +79,7 @@ function deleteUser(req,res,next){
     userModel.deleteUser(parseInt(req.params.id)).then(
         data => {
             res.sendStatus(200);
-            console.log(req.user)
             if(req.user.role !== 'admin'){
-                console.log("killed se cookie")
                 res.cookie('accessToken', '', {maxAge: 0});
             }
         }
