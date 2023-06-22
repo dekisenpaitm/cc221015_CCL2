@@ -1,6 +1,6 @@
 # Portfolio Webpage
 
-Welcome to my portfolio webpage! This project showcases my skills and projects related to game development, pixel art, and UI/UX design. It is built using Vue, Vite, Node.js, Express, Tailwind CSS, DaisyUI, and Axios.
+Welcome to my portfolio webpage! The contentof this project showcases my skills and projects related to game development, pixel art, and UI/UX design. It is built using Vue, Vite, Node.js, Express, Tailwind CSS, DaisyUI, and Axios.
 
 ## Functionality
 
@@ -14,7 +14,7 @@ Users can register and create an account to access additional features on the we
 
 ### User Profile Editing
 
-Once logged in, users have the ability to edit their profiles, providing an opportunity to personalize their information and showcase their own work.
+Once logged in, users have the ability to edit their profiles, providing an opportunity to update their information.
 
 ### Like and Comment
 
@@ -49,8 +49,8 @@ As an admin, I have access to additional functionalities:
 ## Get Started
 
 1. Clone this repository: git clone [https://github.com/your-username/portfolio-webpage.git](https://github.com/dekisenpaitm/cc221015_CCL2.git)
-2. Checkout both Frontend/Backend in seperate terminals
-3. Install dependencies: npm install in both terminals
+2. `cd Frontend` && `cd Backend` in seperate terminals
+3. Install dependencies: `npm install` in both terminals
 4. Create a database with the uploaded SQL file
 5. In the database.js make sure to change:
     > host: "YOUR HOST NAME HERE"
@@ -61,8 +61,8 @@ As an admin, I have access to additional functionalities:
    > DB_PASSWORD="YOUR DB PASSWORD HERE"
    > ACCESS_TOKEN_SECRET="YOUR ENCODED SECRET BY BCRYPT HERE"
 7. The localhost for the backend is currently set to 8000.
-8. Run the development server: npm run dev
-9. Run the vite application: npm run dev
+8. Run the development server: `npm run dev`
+9. Run the vite application: `npm run dev`
 10. Open your browser and visit http://localhost:5173 to access the webpage.
 
 Feel free to reach out if you have any questions or would like to collaborate. I hope you enjoy exploring my first webpage project!
