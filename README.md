@@ -1,44 +1,52 @@
+# Portfolio Webpage
 
-#Portfolio Webpage
 Welcome to my portfolio webpage! This project showcases my skills and projects related to game development, pixel art, and UI/UX design. It is built using Vue, Vite, Node.js, Express, Tailwind CSS, DaisyUI, and Axios.
 
-##Functionality
-###Portfolio Pages
+## Functionality
+
+### Portfolio Pages
+
 The portfolio pages highlight my various projects, including game development, pixel art creations, and UI/UX designs. Each project is presented with relevant information, screenshots, and links to explore further.
 
-###User Registration and Login
+### User Registration and Login
+
 Users can register and create an account to access additional features on the webpage. The registration process ensures a secure environment for users to interact with the content.
 
-###User Profile Editing
-Once logged in, users have the ability to edit their profiles, providing an opportunity to personalize their information.
+### User Profile Editing
 
-###Like and Comment
-Logged-in users can engage with my projects by liking and leaving comments. This feature enables interaction and feedback, fostering a sense of community within the webpage.
+Once logged in, users have the ability to edit their profiles, providing an opportunity to personalize their information and showcase their own work.
 
-###Contact Me
+### Like and Comment
+
+Logged-in users can engage with the projects by liking and leaving comments. This feature enables interaction and feedback, fostering a sense of community within the webpage.
+
+### Contact Me
+
 The webpage provides a convenient way for visitors to get in touch with me. The "Contact Me" section includes a form where users can send messages directly to my admin account.
 
-###Social Media Integration
+### Social Media Integration
+
 To stay connected, I have included links to all of my social media profiles. Feel free to explore my work and follow me on various platforms to get updates on my latest projects and designs.
 
-###Admin Features
+### Admin Features
+
 As an admin, I have access to additional functionalities:
 
-**Read/Receive Messages**: The admin account allows me to read and receive messages sent through the contact form, ensuring prompt communication with visitors.
-**Delete/Edit Users**: I can manage user accounts by deleting or editing their information when necessary.
-**View User Profiles**: The admin dashboard provides access to view user profiles, helping me to better understand my audience and their preferences.
+- **Read/Receive Messages:** The admin account allows me to read and receive messages sent through the contact form, ensuring prompt communication with visitors.
+- **Delete/Edit Users:** I can manage user accounts by deleting or editing their information when necessary.
+- **View User Profiles:** The admin dashboard provides access to view user profiles, helping me to better understand my audience and their preferences.
 
-###Technologies Used
-Vue
-Vite
-Node.js
-Express
-Tailwind CSS
-DaisyUI
-Axios
+## Technologies Used
 
-##Get Started
-To explore my portfolio webpage locally, follow these steps:
+- Vue
+- Vite
+- Node.js
+- Express
+- Tailwind CSS
+- DaisyUI
+- Axios
+
+## Get Started
 
 1. Clone this repository: git clone [https://github.com/your-username/portfolio-webpage.git](https://github.com/dekisenpaitm/cc221015_CCL2.git)
 2. Checkout both Frontend/Backend in seperate terminals
