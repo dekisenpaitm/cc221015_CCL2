@@ -37,6 +37,7 @@ export default {
                 }
             })
                 .then(response => {
+                    this.$emit('deleteMessage', {})
                     window.location.reload(); // Reload the page after successful deletion
                 })
                 .catch((error) => {

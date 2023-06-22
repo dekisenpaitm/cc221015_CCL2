@@ -1,5 +1,5 @@
 <template>
-    <div class="navbar bg-base-300 bg-opacity-75 drop-shadow-lg">
+    <div class="navbar bg-base-300 bg-opacity-75 drop-shadow-lg" @deleteMessage="refreshData" @sendMessage="refreshData">
         <div class="navbar-start">
             <div class="dropdown">
                 <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -63,7 +63,7 @@
                         </li>
                     </router-link>
                     </div>
-                    <li><a v-on:click="userLogout">Logout</a></li>
+                    <li><button v-on:click="userLogout">Logout</button></li>
                 </ul>
             </div>
             <div class="flex-none" v-else>
@@ -114,6 +114,18 @@ export default {
                     window.location.href = '/'; // Redirect the user to the homepage after logout
                 });
         },
+
+        refreshData(){
+            axios.get('http://localhost:8000/contact', {
+                withCredentials: true, // Send cookies along with the request
+                headers: {
+                    'Content-Type': 'application/json' // Set the request content type
+                }
+            })
+                .then(response => {
+                    this.messages = response.data; // Store the fetched messages in the component's data
+                });
+        }
     }
 };
 </script>

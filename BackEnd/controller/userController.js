@@ -79,8 +79,10 @@ function deleteUser(req,res,next){
     userModel.deleteUser(parseInt(req.params.id)).then(
         data => {
             res.sendStatus(200);
-            if(req.body.role !== 'admin'){
-                logout()
+            console.log(req.user)
+            if(req.user.role !== 'admin'){
+                console.log("killed se cookie")
+                res.cookie('accessToken', '', {maxAge: 0});
             }
         }
         )
@@ -144,7 +146,7 @@ function editUser(req, res, next) {
 function login(req,res,next){
     userModel.getUsers().then(async (users) => {
         await authenticationService.authenticateUser(req.body, users, res);
-        res.sendStatus(200);
+        res.send(200);
     }).catch((err) => {
         res.status(500);
     });

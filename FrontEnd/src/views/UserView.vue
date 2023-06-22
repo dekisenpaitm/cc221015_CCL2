@@ -47,6 +47,7 @@ import axios from "axios";
 
 export default {
     name: "UserView",
+    props:['loggedIn'],
     data() {
         return {
             user: {}, // Holds the user data
@@ -87,7 +88,7 @@ export default {
             axios.delete(`http://localhost:8000/users/${this.$route.params.id}/delete`, { withCredentials: true })
                 .then((response) => {
                     this.user = response.data; // Update the user data after deletion
-                    window.location.href = '/users'; // Redirect to the users list page
+                    this.userLogout()
                 })
                 .catch((error) => {
                     console.error(error);
@@ -95,7 +96,21 @@ export default {
 
             const popUp = document.getElementById('popUp');
             popUp.classList.add('hidden'); // Hide the delete confirmation pop-up
-        }
+        },
+        userLogout() {
+            if(this.loggedIn.role !== 'admin') {
+                // Send a logout request to the server when the user logs out
+                axios.get('http://localhost:8000/logout', {
+                    withCredentials: true, // Send cookies along with the request
+                    headers: {
+                        'Content-Type': 'application/json' // Set the request content type
+                    }
+                })
+                    .then(response => {
+                        window.location.href = '/'; // Redirect the user to the homepage after logout
+                    });
+            }
+        },
     }
 };
 </script>
