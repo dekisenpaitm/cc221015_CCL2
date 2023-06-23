@@ -144,7 +144,7 @@ function editUser(req, res, next) {
 function login(req,res,next){
     userModel.getUsers().then(async (users) => {
         await authenticationService.authenticateUser(req.body, users, res);
-        res.send(200);
+        res.sendStatus(200);
     }).catch((err) => {
         res.status(500);
     });
