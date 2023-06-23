@@ -48,6 +48,7 @@ As an admin, I have access to additional functionalities:
 
 ## Get Started
 
+0. Make sure to CLEAR your COOKIES before hosting locally
 1. Clone this repository: git clone [https://github.com/your-username/portfolio-webpage.git](https://github.com/dekisenpaitm/cc221015_CCL2.git)
 2. `cd Frontend` && `cd Backend` in seperate terminals
 3. Install dependencies: `npm install` in both terminals
