@@ -38,19 +38,19 @@ As an admin, I have access to additional functionalities:
 
 ## Technologies Used
 
-- Vue
-- Vite
-- Node.js
-- Express
+- Vue/Vite
 - Tailwind CSS
 - DaisyUI
 - Axios
+- MySQL
+- Express
+- Node.js
 
 ## Get Started
 
 0. Make sure to CLEAR your COOKIES before hosting locally
 1. Clone this repository: git clone [https://github.com/your-username/portfolio-webpage.git](https://github.com/dekisenpaitm/cc221015_CCL2.git)
-2. `cd Frontend` && `cd Backend` in seperate terminals
+2. `cd Frontend` && `cd Backend` in separate terminals
 3. Install dependencies: `npm install` in both terminals
 4. Create a database with the uploaded SQL file
 5. In the database.js make sure to change:
